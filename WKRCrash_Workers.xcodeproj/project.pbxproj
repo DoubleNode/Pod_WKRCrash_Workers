@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		486DE662D38F67B8B3F8EC0D /* Pods_WKRCrash_WorkersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C9D9B80F4BA47A179350E7 /* Pods_WKRCrash_WorkersTests.framework */; };
+		6A1110BB1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1110BA1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m */; };
 		6AB2ED841DD7CCB3004439E6 /* WKRCrash_User_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB2ED831DD7CCB3004439E6 /* WKRCrash_User_Worker.m */; };
 		6AE1BD871DCB796C0074C920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD861DCB796C0074C920 /* main.m */; };
 		6AE1BD8A1DCB796C0074C920 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD891DCB796C0074C920 /* AppDelegate.m */; };
@@ -38,6 +39,8 @@
 		122974D1A295D926B7256808 /* Pods-WKRCrash_WorkersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKRCrash_WorkersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKRCrash_WorkersTests/Pods-WKRCrash_WorkersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		17A94AB537BFAB99F486E997 /* Pods_WKRCrash_Workers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WKRCrash_Workers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CB4CD78F96C6556CA478DA /* Pods-WKRCrash_Workers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKRCrash_Workers.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKRCrash_Workers/Pods-WKRCrash_Workers.release.xcconfig"; sourceTree = "<group>"; };
+		6A1110B91DEE835C00CBFCA7 /* WKRCrash_File_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_File_Worker.h; path = Classes/WKRCrash_File_Worker.h; sourceTree = "<group>"; };
+		6A1110BA1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_File_Worker.m; path = Classes/WKRCrash_File_Worker.m; sourceTree = "<group>"; };
 		6AB2ED821DD7CCB3004439E6 /* WKRCrash_User_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_User_Worker.h; path = Classes/WKRCrash_User_Worker.h; sourceTree = "<group>"; };
 		6AB2ED831DD7CCB3004439E6 /* WKRCrash_User_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_User_Worker.m; path = Classes/WKRCrash_User_Worker.m; sourceTree = "<group>"; };
 		6AE1BD821DCB796C0074C920 /* WKRCrash_Workers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKRCrash_Workers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +179,8 @@
 			children = (
 				6AE1BDB41DCB801C0074C920 /* WKRCrash_Analytics_Worker.h */,
 				6AE1BDB51DCB801C0074C920 /* WKRCrash_Analytics_Worker.m */,
+				6A1110B91DEE835C00CBFCA7 /* WKRCrash_File_Worker.h */,
+				6A1110BA1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m */,
 				6AE1BDAE1DCB7AD70074C920 /* WKRCrash_SocialAuthenticate_Worker.h */,
 				6AE1BDAF1DCB7AD70074C920 /* WKRCrash_SocialAuthenticate_Worker.m */,
 				6AB2ED821DD7CCB3004439E6 /* WKRCrash_User_Worker.h */,
@@ -397,6 +402,7 @@
 				6AE1BDB31DCB7AD70074C920 /* WKRCrash_UserIdentification_Worker.m in Sources */,
 				6AE1BDB81DCB801C0074C920 /* WKRCrash_Analytics_Worker.m in Sources */,
 				6AB2ED841DD7CCB3004439E6 /* WKRCrash_User_Worker.m in Sources */,
+				6A1110BB1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m in Sources */,
 				6AE1BDB21DCB7AD70074C920 /* WKRCrash_SocialAuthenticate_Worker.m in Sources */,
 				6AE1BD871DCB796C0074C920 /* main.m in Sources */,
 			);
