@@ -254,6 +254,7 @@
 					6AE1BD811DCB796C0074C920 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = T864D3RXRZ;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					6AE1BD9A1DCB796D0074C920 = {
@@ -552,6 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DoubleNode.WKRCrash-Workers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -565,6 +567,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DoubleNode.WKRCrash-Workers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
