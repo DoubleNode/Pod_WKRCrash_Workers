@@ -7,11 +7,11 @@ inhibit_all_warnings!
 
 platform :ios, '9.0'
 
-target ‘WKRCrash_Workers’ do
+target 'WKRCrash_Workers' do
   # Pods for WKRCrash_Workers
-  pod ‘DNCProtocols’
+  pod 'DNCProtocols'
 
-  target 'WKRCrash_WorkersTests’ do
+  target 'WKRCrash_WorkersTests' do
     inherit! :search_paths
 
     # Pods for testing

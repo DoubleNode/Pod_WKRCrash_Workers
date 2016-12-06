@@ -1,0 +1,186 @@
+//
+//  WKRCrash_Item_Worker.m
+//  DoubleNode Core
+//
+//  Created by Darren Ehlers on 2016/10/16.
+//  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
+//
+
+#import "WKRCrash_Item_Worker.h"
+
+@implementation WKRCrash_Item_Worker
+
+@synthesize nextBaseWorker;
+@synthesize nextItemWorker;
+
++ (instancetype _Nonnull)worker   {   return [self worker:nil]; }
+
++ (instancetype _Nonnull)worker:(nullable id<PTCLItem_Protocol>)nextItemWorker
+{
+    id<PTCLItem_Protocol> worker    = [[self.class alloc] init];
+    worker.nextItemWorker           = nextItemWorker;
+    return worker;
+}
+
+- (void)configure
+{
+    
+}
+
+- (void)enableOption:(nonnull NSString*)option
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker enableOption:option];
+    }
+    
+    // Options not used in this Worker
+}
+
+- (void)disableOption:(nonnull NSString*)option
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker disableOption:option];
+    }
+    
+    // Options not used in this Worker
+}
+
+#pragma mark - Business Logic / Single Item CRUD
+
+- (void)doLoadObjectForId:(nonnull NSString*)itemId
+                withBlock:(nullable PTCLItemBlockVoidDAOItemNSErrorContinue)block
+           andUpdateBlock:(nullable PTCLItemBlockVoidDAOItemNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadObjectForId:itemId
+                                     withBlock:block
+                                andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveObject:(nonnull DAOItem*)item
+           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doSaveObject:item
+                                withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doFavoriteObject:(nonnull DAOItem*)item
+               withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doFavoriteObject:item
+                                    withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnfavoriteObject:(nonnull DAOItem*)item
+                 withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doUnfavoriteObject:item
+                                      withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doWishlistObject:(nonnull DAOItem*)item
+               withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doWishlistObject:item
+                                    withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnwishlistObject:(nonnull DAOItem*)item
+                 withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doUnwishlistObject:item
+                                      withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+#pragma mark - Business Logic / Single Item Relationship CRUD
+
+- (void)doLoadLocationsForObject:(nonnull DAOItem*)item
+                       withBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadLocationsForObject:item
+                                            withBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+#pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadObjects:(nonnull NSString*)searchId
+             withText:(nonnull NSString*)search
+       withParameters:(nullable NSDictionary*)parameters
+             andBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+       andUpdateBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadObjects:searchId
+                                  withText:search
+                            withParameters:parameters
+                                  andBlock:block
+                            andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+@end

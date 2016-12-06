@@ -28,6 +28,11 @@
     return worker;
 }
 
+- (void)configure
+{
+    
+}
+
 - (void)enableOption:(nonnull NSString*)option
 {
     if (self.nextMediaLibraryWorker)
