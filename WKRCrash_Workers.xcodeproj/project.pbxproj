@@ -24,6 +24,7 @@
 		6AE0CFB11DF7799B009727C1 /* WKRCrash_Review_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CFA61DF7799B009727C1 /* WKRCrash_Review_Worker.m */; };
 		6AE0CFB21DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CFA81DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m */; };
 		6AE0D0491DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0D0481DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m */; };
+		6AE0D1DC1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0D1DB1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m */; };
 		6AE1BD871DCB796C0074C920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD861DCB796C0074C920 /* main.m */; };
 		6AE1BD8A1DCB796C0074C920 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD891DCB796C0074C920 /* AppDelegate.m */; };
 		6AE1BD8D1DCB796C0074C920 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD8C1DCB796C0074C920 /* ViewController.m */; };
@@ -85,6 +86,8 @@
 		6AE0CFA81DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Wishlist_Worker.m; path = Classes/WKRCrash_Wishlist_Worker.m; sourceTree = "<group>"; };
 		6AE0D0471DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_PasswordStrength_Worker.h; path = Classes/WKRCrash_PasswordStrength_Worker.h; sourceTree = "<group>"; };
 		6AE0D0481DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_PasswordStrength_Worker.m; path = Classes/WKRCrash_PasswordStrength_Worker.m; sourceTree = "<group>"; };
+		6AE0D1DA1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_Auth_Worker.h; path = Classes/WKRCrash_Auth_Worker.h; sourceTree = "<group>"; };
+		6AE0D1DB1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Auth_Worker.m; path = Classes/WKRCrash_Auth_Worker.m; sourceTree = "<group>"; };
 		6AE1BD821DCB796C0074C920 /* WKRCrash_Workers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKRCrash_Workers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE1BD861DCB796C0074C920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AE1BD881DCB796C0074C920 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				6AE0CF961DF7799B009727C1 /* WKRCrash_Activity_Worker.m */,
 				6AE1BDB41DCB801C0074C920 /* WKRCrash_Analytics_Worker.h */,
 				6AE1BDB51DCB801C0074C920 /* WKRCrash_Analytics_Worker.m */,
+				6AE0D1DA1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.h */,
+				6AE0D1DB1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m */,
 				6AE0CF971DF7799B009727C1 /* WKRCrash_Checkin_Worker.h */,
 				6AE0CF981DF7799B009727C1 /* WKRCrash_Checkin_Worker.m */,
 				6AE0CF991DF7799B009727C1 /* WKRCrash_Favorite_Worker.h */,
@@ -467,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE0D1DC1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m in Sources */,
 				6AE0CFAA1DF7799B009727C1 /* WKRCrash_Checkin_Worker.m in Sources */,
 				6AE1BDB91DCB801C0074C920 /* WKRCrash_Validation_Worker.m in Sources */,
 				6AE0CFAD1DF7799B009727C1 /* WKRCrash_Location_Worker.m in Sources */,
