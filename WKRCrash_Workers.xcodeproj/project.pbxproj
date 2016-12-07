@@ -23,6 +23,7 @@
 		6AE0CFB01DF7799B009727C1 /* WKRCrash_Rating_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CFA41DF7799B009727C1 /* WKRCrash_Rating_Worker.m */; };
 		6AE0CFB11DF7799B009727C1 /* WKRCrash_Review_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CFA61DF7799B009727C1 /* WKRCrash_Review_Worker.m */; };
 		6AE0CFB21DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CFA81DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m */; };
+		6AE0D0491DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0D0481DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m */; };
 		6AE1BD871DCB796C0074C920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD861DCB796C0074C920 /* main.m */; };
 		6AE1BD8A1DCB796C0074C920 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD891DCB796C0074C920 /* AppDelegate.m */; };
 		6AE1BD8D1DCB796C0074C920 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1BD8C1DCB796C0074C920 /* ViewController.m */; };
@@ -82,6 +83,8 @@
 		6AE0CFA61DF7799B009727C1 /* WKRCrash_Review_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Review_Worker.m; path = Classes/WKRCrash_Review_Worker.m; sourceTree = "<group>"; };
 		6AE0CFA71DF7799B009727C1 /* WKRCrash_Wishlist_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_Wishlist_Worker.h; path = Classes/WKRCrash_Wishlist_Worker.h; sourceTree = "<group>"; };
 		6AE0CFA81DF7799B009727C1 /* WKRCrash_Wishlist_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Wishlist_Worker.m; path = Classes/WKRCrash_Wishlist_Worker.m; sourceTree = "<group>"; };
+		6AE0D0471DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_PasswordStrength_Worker.h; path = Classes/WKRCrash_PasswordStrength_Worker.h; sourceTree = "<group>"; };
+		6AE0D0481DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_PasswordStrength_Worker.m; path = Classes/WKRCrash_PasswordStrength_Worker.m; sourceTree = "<group>"; };
 		6AE1BD821DCB796C0074C920 /* WKRCrash_Workers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKRCrash_Workers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE1BD861DCB796C0074C920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AE1BD881DCB796C0074C920 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				6AE0CFA01DF7799B009727C1 /* WKRCrash_Message_Worker.m */,
 				6AE0CFA11DF7799B009727C1 /* WKRCrash_News_Worker.h */,
 				6AE0CFA21DF7799B009727C1 /* WKRCrash_News_Worker.m */,
+				6AE0D0471DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.h */,
+				6AE0D0481DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m */,
 				6A1110BC1DEE93AA00CBFCA7 /* WKRCrash_Photo_Worker.h */,
 				6A1110BD1DEE93AA00CBFCA7 /* WKRCrash_Photo_Worker.m */,
 				6AE0CFA31DF7799B009727C1 /* WKRCrash_Rating_Worker.h */,
@@ -478,6 +483,7 @@
 				6AE0CFAE1DF7799B009727C1 /* WKRCrash_Message_Worker.m in Sources */,
 				6AE0CF8A1DF7360E009727C1 /* WKRCrash_UserDevice_Worker.m in Sources */,
 				6AE0CFAF1DF7799B009727C1 /* WKRCrash_News_Worker.m in Sources */,
+				6AE0D0491DF89E89009727C1 /* WKRCrash_PasswordStrength_Worker.m in Sources */,
 				6A1110BB1DEE835C00CBFCA7 /* WKRCrash_File_Worker.m in Sources */,
 				6A19D4E11DF07B24009EC624 /* WKRCrash_MediaLibrary_Worker.m in Sources */,
 				6AE1BDB21DCB7AD70074C920 /* WKRCrash_SocialAuthenticate_Worker.m in Sources */,
@@ -621,7 +627,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E00405A77FB545109CDD1739 /* Pods-WKRCrash_Workers.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = WKRCrash_Workers/Info.plist;
@@ -636,7 +642,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 66CB4CD78F96C6556CA478DA /* Pods-WKRCrash_Workers.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = WKRCrash_Workers/Info.plist;
