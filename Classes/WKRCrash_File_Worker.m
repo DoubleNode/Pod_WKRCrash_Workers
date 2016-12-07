@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLFile_Protocol>)nextFileWorker
 {
-    id<PTCLFile_Protocol> worker    = [[self.class alloc] init];
-    worker.nextFileWorker           = nextFileWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextFileWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextFileWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLFile_Protocol>)nextFileWorker_
+{
+    self = [super initWithWorker:nextFileWorker_];
+    if (self)
+    {
+        self.nextFileWorker = nextFileWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

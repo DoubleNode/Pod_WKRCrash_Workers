@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLMessage_Protocol>)nextMessageWorker
 {
-    id<PTCLMessage_Protocol> worker = [[self.class alloc] init];
-    worker.nextMessageWorker        = nextMessageWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextMessageWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextMessageWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLMessage_Protocol>)nextMessageWorker_
+{
+    self = [super initWithWorker:nextMessageWorker_];
+    if (self)
+    {
+        self.nextMessageWorker = nextMessageWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

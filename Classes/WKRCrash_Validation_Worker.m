@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLValidation_Protocol>)nextValidationWorker
 {
-    id<PTCLValidation_Protocol> worker  = [[self.class alloc] init];
-    worker.nextValidationWorker         = nextValidationWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextValidationWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextValidationWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLValidation_Protocol>)nextValidationWorker_
+{
+    self = [super initWithWorker:nextValidationWorker_];
+    if (self)
+    {
+        self.nextValidationWorker = nextValidationWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

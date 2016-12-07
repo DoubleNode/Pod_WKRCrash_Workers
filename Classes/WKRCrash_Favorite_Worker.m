@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLFavorite_Protocol>)nextFavoriteWorker
 {
-    id<PTCLFavorite_Protocol> worker    = [[self.class alloc] init];
-    worker.nextFavoriteWorker           = nextFavoriteWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextFavoriteWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextFavoriteWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLFavorite_Protocol>)nextFavoriteWorker_
+{
+    self = [super initWithWorker:nextFavoriteWorker_];
+    if (self)
+    {
+        self.nextFavoriteWorker = nextFavoriteWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

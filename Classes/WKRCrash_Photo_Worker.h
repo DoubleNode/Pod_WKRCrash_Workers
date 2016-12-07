@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLPhoto_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Photo_Worker : NSObject<PTCLPhoto_Protocol>
+@interface WKRCrash_Photo_Worker : WKR_Base_Worker<PTCLPhoto_Protocol>
 
 @end

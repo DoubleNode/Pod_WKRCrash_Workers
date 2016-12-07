@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLNews_Protocol>)nextNewsWorker
 {
-    id<PTCLNews_Protocol> worker    = [[self.class alloc] init];
-    worker.nextNewsWorker           = nextNewsWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextNewsWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextNewsWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLNews_Protocol>)nextNewsWorker_
+{
+    self = [super initWithWorker:nextNewsWorker_];
+    if (self)
+    {
+        self.nextNewsWorker = nextNewsWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

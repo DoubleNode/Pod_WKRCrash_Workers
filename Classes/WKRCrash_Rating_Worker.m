@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLRating_Protocol>)nextRatingWorker
 {
-    id<PTCLRating_Protocol> worker  = [[self.class alloc] init];
-    worker.nextRatingWorker         = nextRatingWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextRatingWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextRatingWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLRating_Protocol>)nextRatingWorker_
+{
+    self = [super initWithWorker:nextRatingWorker_];
+    if (self)
+    {
+        self.nextRatingWorker = nextRatingWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

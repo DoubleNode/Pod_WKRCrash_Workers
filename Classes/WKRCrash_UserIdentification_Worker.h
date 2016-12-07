@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLUserIdentification_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_UserIdentification_Worker : NSObject<PTCLUserIdentification_Protocol>
+@interface WKRCrash_UserIdentification_Worker : WKR_Base_Worker<PTCLUserIdentification_Protocol>
 
 @end

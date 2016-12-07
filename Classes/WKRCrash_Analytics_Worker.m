@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLAnalytics_Protocol>)nextAnalyticsWorker
 {
-    id<PTCLAnalytics_Protocol>  worker  = [[self.class alloc] init];
-    worker.nextAnalyticsWorker  = nextAnalyticsWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextAnalyticsWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextAnalyticsWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLAnalytics_Protocol>)nextAnalyticsWorker_
+{
+    self = [super initWithWorker:nextAnalyticsWorker_];
+    if (self)
+    {
+        self.nextAnalyticsWorker = nextAnalyticsWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

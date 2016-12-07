@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLReview_Protocol>)nextReviewWorker
 {
-    id<PTCLReview_Protocol> worker  = [[self.class alloc] init];
-    worker.nextReviewWorker         = nextReviewWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextReviewWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextReviewWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLReview_Protocol>)nextReviewWorker_
+{
+    self = [super initWithWorker:nextReviewWorker_];
+    if (self)
+    {
+        self.nextReviewWorker = nextReviewWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

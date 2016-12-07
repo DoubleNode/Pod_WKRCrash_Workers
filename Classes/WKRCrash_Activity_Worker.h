@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLActivity_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Activity_Worker : NSObject<PTCLActivity_Protocol>
+@interface WKRCrash_Activity_Worker : WKR_Base_Worker<PTCLActivity_Protocol>
 
 @end

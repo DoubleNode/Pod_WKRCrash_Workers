@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLUserDevice_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_UserDevice_Worker : NSObject<PTCLUserDevice_Protocol>
+@interface WKRCrash_UserDevice_Worker : WKR_Base_Worker<PTCLUserDevice_Protocol>
 
 @end

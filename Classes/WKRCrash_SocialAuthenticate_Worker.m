@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLSocialAuthenticate_Protocol>)nextSocialAuthenticateWorker
 {
-    id<PTCLSocialAuthenticate_Protocol> worker  = [[self.class alloc] init];
-    worker.nextSocialAuthenticateWorker         = nextSocialAuthenticateWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextSocialAuthenticateWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextSocialAuthenticateWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLSocialAuthenticate_Protocol>)nextSocialAuthenticateWorker_
+{
+    self = [super initWithWorker:nextSocialAuthenticateWorker_];
+    if (self)
+    {
+        self.nextSocialAuthenticateWorker = nextSocialAuthenticateWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

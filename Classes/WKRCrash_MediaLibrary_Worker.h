@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLMediaLibrary_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_MediaLibrary_Worker : NSObject<PTCLMediaLibrary_Protocol>
+@interface WKRCrash_MediaLibrary_Worker : WKR_Base_Worker<PTCLMediaLibrary_Protocol>
 
 @end

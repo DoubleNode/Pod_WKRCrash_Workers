@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLRating_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Rating_Worker : NSObject<PTCLRating_Protocol>
+@interface WKRCrash_Rating_Worker : WKR_Base_Worker<PTCLRating_Protocol>
 
 @end

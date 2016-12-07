@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLPhoto_Protocol>)nextPhotoWorker
 {
-    id<PTCLPhoto_Protocol> worker   = [[self.class alloc] init];
-    worker.nextPhotoWorker          = nextPhotoWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextPhotoWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextPhotoWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLPhoto_Protocol>)nextPhotoWorker_
+{
+    self = [super initWithWorker:nextPhotoWorker_];
+    if (self)
+    {
+        self.nextPhotoWorker = nextPhotoWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

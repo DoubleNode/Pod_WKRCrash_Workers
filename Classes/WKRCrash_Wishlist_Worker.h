@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLWishlist_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Wishlist_Worker : NSObject<PTCLWishlist_Protocol>
+@interface WKRCrash_Wishlist_Worker : WKR_Base_Worker<PTCLWishlist_Protocol>
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLAnalytics_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Analytics_Worker : NSObject<PTCLAnalytics_Protocol>
+@interface WKRCrash_Analytics_Worker : WKR_Base_Worker<PTCLAnalytics_Protocol>
 
 @end

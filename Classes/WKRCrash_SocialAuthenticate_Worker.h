@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLSocialAuthenticate_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_SocialAuthenticate_Worker : NSObject<PTCLSocialAuthenticate_Protocol>
+@interface WKRCrash_SocialAuthenticate_Worker : WKR_Base_Worker<PTCLSocialAuthenticate_Protocol>
 
 @end

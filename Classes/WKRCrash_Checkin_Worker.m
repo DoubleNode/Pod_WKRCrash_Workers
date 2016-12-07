@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLCheckin_Protocol>)nextCheckinWorker
 {
-    id<PTCLCheckin_Protocol> worker = [[self.class alloc] init];
-    worker.nextCheckinWorker        = nextCheckinWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextCheckinWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextCheckinWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLCheckin_Protocol>)nextCheckinWorker_
+{
+    self = [super initWithWorker:nextCheckinWorker_];
+    if (self)
+    {
+        self.nextCheckinWorker = nextCheckinWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

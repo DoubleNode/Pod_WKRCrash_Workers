@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLCheckin_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Checkin_Worker : NSObject<PTCLCheckin_Protocol>
+@interface WKRCrash_Checkin_Worker : WKR_Base_Worker<PTCLCheckin_Protocol>
 
 @end

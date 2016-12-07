@@ -21,14 +21,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLUserDevice_Protocol>)nextUserDeviceWorker
 {
-    id<PTCLUserDevice_Protocol> worker  = [[self.class alloc] init];
-    worker.nextUserDeviceWorker         = nextUserDeviceWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextUserDeviceWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextUserDeviceWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLUserDevice_Protocol>)nextUserDeviceWorker_
+{
+    self = [super initWithWorker:nextUserDeviceWorker_];
+    if (self)
+    {
+        self.nextUserDeviceWorker = nextUserDeviceWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLWishlist_Protocol>)nextWishlistWorker
 {
-    id<PTCLWishlist_Protocol> worker    = [[self.class alloc] init];
-    worker.nextWishlistWorker           = nextWishlistWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextWishlistWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextWishlistWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLWishlist_Protocol>)nextWishlistWorker_
+{
+    self = [super initWithWorker:nextWishlistWorker_];
+    if (self)
+    {
+        self.nextWishlistWorker = nextWishlistWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

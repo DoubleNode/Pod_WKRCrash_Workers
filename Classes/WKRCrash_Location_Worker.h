@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLLocation_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Location_Worker : NSObject<PTCLLocation_Protocol>
+@interface WKRCrash_Location_Worker : WKR_Base_Worker<PTCLLocation_Protocol>
 
 @end

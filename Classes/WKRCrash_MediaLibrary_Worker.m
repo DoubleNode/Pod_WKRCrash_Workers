@@ -23,14 +23,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLMediaLibrary_Protocol>)nextMediaLibraryWorker
 {
-    id<PTCLMediaLibrary_Protocol> worker    = [[self.class alloc] init];
-    worker.nextMediaLibraryWorker           = nextMediaLibraryWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextMediaLibraryWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextMediaLibraryWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLMediaLibrary_Protocol>)nextMediaLibraryWorker_
+{
+    self = [super initWithWorker:nextMediaLibraryWorker_];
+    if (self)
+    {
+        self.nextMediaLibraryWorker = nextMediaLibraryWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

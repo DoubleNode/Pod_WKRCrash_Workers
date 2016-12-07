@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLFavorite_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_Favorite_Worker : NSObject<PTCLFavorite_Protocol>
+@interface WKRCrash_Favorite_Worker : WKR_Base_Worker<PTCLFavorite_Protocol>
 
 @end

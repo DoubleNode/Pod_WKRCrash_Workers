@@ -17,14 +17,29 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLLocation_Protocol>)nextLocationWorker
 {
-    id<PTCLLocation_Protocol> worker    = [[self.class alloc] init];
-    worker.nextLocationWorker           = nextLocationWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextLocationWorker];
 }
 
-- (void)configure
+- (nonnull instancetype)init
 {
+    self = [super init];
+    if (self)
+    {
+        self.nextLocationWorker = nil;
+    }
     
+    return self;
+}
+
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLLocation_Protocol>)nextLocationWorker_
+{
+    self = [super initWithWorker:nextLocationWorker_];
+    if (self)
+    {
+        self.nextLocationWorker = nextLocationWorker_;
+    }
+    
+    return self;
 }
 
 - (void)enableOption:(nonnull NSString*)option

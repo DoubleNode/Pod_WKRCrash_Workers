@@ -7,7 +7,8 @@
 //
 
 #import <DNCProtocols/PTCLNews_Protocol.h>
+#import <DNCProtocols/__WKR_Base_Worker.h>
 
-@interface WKRCrash_News_Worker : NSObject<PTCLNews_Protocol>
+@interface WKRCrash_News_Worker : WKR_Base_Worker<PTCLNews_Protocol>
 
 @end
