@@ -289,4 +289,25 @@
     @throw exception;
 }
 
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+             forUser:(nonnull DAOUser*)daoUser
+           withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doSaveOption:optionId
+                                   andKey:optionKey
+                                 andValue:optionValue
+                                  forUser:daoUser
+                                withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end

@@ -96,6 +96,27 @@
     @throw exception;
 }
 
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+             forItem:(nonnull DAOItem*)daoItem
+           withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doSaveOption:optionId
+                                   andKey:optionKey
+                                 andValue:optionValue
+                                  forItem:daoItem
+                                withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFavoriteObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block
 {

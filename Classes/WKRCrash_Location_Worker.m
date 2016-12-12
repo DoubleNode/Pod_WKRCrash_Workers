@@ -96,6 +96,27 @@
     @throw exception;
 }
 
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+         forLocation:(nonnull DAOLocation*)daoLocation
+           withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doSaveOption:optionId
+                                       andKey:optionKey
+                                     andValue:optionValue
+                                  forLocation:daoLocation
+                                    withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block
 {
