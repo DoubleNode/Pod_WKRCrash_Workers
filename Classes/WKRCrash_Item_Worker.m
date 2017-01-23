@@ -96,6 +96,21 @@
     @throw exception;
 }
 
+- (void)doSaveObjectOptions:(nonnull DAOItem*)item
+                  withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doSaveObjectOptions:item
+                                       withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue

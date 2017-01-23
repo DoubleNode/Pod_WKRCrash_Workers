@@ -255,6 +255,21 @@
     @throw exception;
 }
 
+- (void)saveOptionsInBackground:(nonnull DAOUser*)daoUser
+                      withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker saveOptionsInBackground:daoUser
+                                           withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)signUpInBackground:(nonnull DAOUser*)user
                  withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
 {
