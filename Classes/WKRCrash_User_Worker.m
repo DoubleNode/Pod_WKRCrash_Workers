@@ -225,6 +225,23 @@
     @throw exception;
 }
 
+- (void)doLoadLocationsForObject:(nonnull DAOUser*)user
+                       withBlock:(nullable PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doLoadLocationsForObject:user
+                                            withBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doResetPasswordForEmail:(nonnull NSString*)email
                       withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
 {
