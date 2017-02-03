@@ -181,6 +181,23 @@
     @throw exception;
 }
 
+- (void)doLoadPhotosForObject:(nonnull DAOLocation*)location
+                    withBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadPhotosForObject:location
+                                             withBlock:block
+                                        andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjects:(nonnull NSString*)searchId
