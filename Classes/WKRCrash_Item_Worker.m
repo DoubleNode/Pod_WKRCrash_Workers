@@ -81,6 +81,21 @@
     @throw exception;
 }
 
+- (void)doDeleteObject:(nonnull DAOItem*)item
+             withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doDeleteObject:item
+                                  withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doSaveObject:(nonnull DAOItem*)item
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block
 {
