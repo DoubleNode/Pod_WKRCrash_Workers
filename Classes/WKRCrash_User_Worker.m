@@ -211,7 +211,7 @@
 }
 
 - (void)doVerify:(nonnull DAOUser*)user
-       withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+       withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block
 {
     if (self.nextUserWorker)
     {
