@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WKRCrash_Workers"
-  s.version      = "0.0.14"
+  s.version      = "0.0.15"
   s.summary      = "A base collection of workers with assertions if called."
 
   # This description is used to generate tags and improve search results.
