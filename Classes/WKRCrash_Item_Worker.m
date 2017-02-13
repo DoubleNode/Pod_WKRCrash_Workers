@@ -112,6 +112,23 @@
 }
 
 - (void)doSaveObject:(nonnull DAOItem*)item
+          inCategory:(nonnull DAOCategory*)category
+           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doSaveObject:item
+                               inCategory:category
+                                withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveObject:(nonnull DAOItem*)item
           inLocation:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block
 {

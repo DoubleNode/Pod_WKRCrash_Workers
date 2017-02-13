@@ -96,6 +96,23 @@
     @throw exception;
 }
 
+- (void)doSaveObject:(nonnull DAOLocation*)location
+          inCategory:(nonnull DAOCategory*)category
+           withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doSaveObject:location
+                                   inCategory:category
+                                    withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doSaveObjectOptions:(nonnull DAOLocation*)location
                   withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
 {
