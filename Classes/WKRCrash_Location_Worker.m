@@ -81,6 +81,38 @@
     @throw exception;
 }
 
+- (void)doDeleteObject:(nonnull DAOLocation*)location
+             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doDeleteObject:location
+                                      withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteObject:(nonnull DAOLocation*)location
+          fromCategory:(nonnull DAOCategory*)category
+             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doDeleteObject:location
+                                   fromCategory:category
+                                      withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doSaveObject:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block
 {
