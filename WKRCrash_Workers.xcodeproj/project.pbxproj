@@ -12,6 +12,7 @@
 		6A1110BE1DEE93AA00CBFCA7 /* WKRCrash_Photo_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1110BD1DEE93AA00CBFCA7 /* WKRCrash_Photo_Worker.m */; };
 		6A19D4E11DF07B24009EC624 /* WKRCrash_MediaLibrary_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A19D4E01DF07B24009EC624 /* WKRCrash_MediaLibrary_Worker.m */; };
 		6AB2ED841DD7CCB3004439E6 /* WKRCrash_User_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB2ED831DD7CCB3004439E6 /* WKRCrash_User_Worker.m */; };
+		6ADA78061E5378F400F65B2F /* WKRCrash_Cache_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA78051E5378F400F65B2F /* WKRCrash_Cache_Worker.m */; };
 		6AE0CF8A1DF7360E009727C1 /* WKRCrash_UserDevice_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CF891DF7360E009727C1 /* WKRCrash_UserDevice_Worker.m */; };
 		6AE0CFA91DF7799B009727C1 /* WKRCrash_Activity_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CF961DF7799B009727C1 /* WKRCrash_Activity_Worker.m */; };
 		6AE0CFAA1DF7799B009727C1 /* WKRCrash_Checkin_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0CF981DF7799B009727C1 /* WKRCrash_Checkin_Worker.m */; };
@@ -62,6 +63,8 @@
 		6A19D4E01DF07B24009EC624 /* WKRCrash_MediaLibrary_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_MediaLibrary_Worker.m; path = Classes/WKRCrash_MediaLibrary_Worker.m; sourceTree = "<group>"; };
 		6AB2ED821DD7CCB3004439E6 /* WKRCrash_User_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_User_Worker.h; path = Classes/WKRCrash_User_Worker.h; sourceTree = "<group>"; };
 		6AB2ED831DD7CCB3004439E6 /* WKRCrash_User_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_User_Worker.m; path = Classes/WKRCrash_User_Worker.m; sourceTree = "<group>"; };
+		6ADA78041E5378F400F65B2F /* WKRCrash_Cache_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_Cache_Worker.h; path = Classes/WKRCrash_Cache_Worker.h; sourceTree = "<group>"; };
+		6ADA78051E5378F400F65B2F /* WKRCrash_Cache_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Cache_Worker.m; path = Classes/WKRCrash_Cache_Worker.m; sourceTree = "<group>"; };
 		6AE0CF881DF7360E009727C1 /* WKRCrash_UserDevice_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_UserDevice_Worker.h; path = Classes/WKRCrash_UserDevice_Worker.h; sourceTree = "<group>"; };
 		6AE0CF891DF7360E009727C1 /* WKRCrash_UserDevice_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_UserDevice_Worker.m; path = Classes/WKRCrash_UserDevice_Worker.m; sourceTree = "<group>"; };
 		6AE0CF951DF7799B009727C1 /* WKRCrash_Activity_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_Activity_Worker.h; path = Classes/WKRCrash_Activity_Worker.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				6AE1BDB51DCB801C0074C920 /* WKRCrash_Analytics_Worker.m */,
 				6AE0D1DA1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.h */,
 				6AE0D1DB1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m */,
+				6ADA78041E5378F400F65B2F /* WKRCrash_Cache_Worker.h */,
+				6ADA78051E5378F400F65B2F /* WKRCrash_Cache_Worker.m */,
 				6AE0CF971DF7799B009727C1 /* WKRCrash_Checkin_Worker.h */,
 				6AE0CF981DF7799B009727C1 /* WKRCrash_Checkin_Worker.m */,
 				6AE0CF991DF7799B009727C1 /* WKRCrash_Favorite_Worker.h */,
@@ -473,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AE0D1DC1DF8BCEA009727C1 /* WKRCrash_Auth_Worker.m in Sources */,
+				6ADA78061E5378F400F65B2F /* WKRCrash_Cache_Worker.m in Sources */,
 				6AE0CFAA1DF7799B009727C1 /* WKRCrash_Checkin_Worker.m in Sources */,
 				6AE1BDB91DCB801C0074C920 /* WKRCrash_Validation_Worker.m in Sources */,
 				6AE0CFAD1DF7799B009727C1 /* WKRCrash_Location_Worker.m in Sources */,
