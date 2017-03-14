@@ -149,6 +149,23 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAOActivity*)activity
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLActivityBlockVoidBOOLNSError)block
+{
+    if (self.nextActivityWorker)
+    {
+        [self.nextActivityWorker doCheckFlagObject:activity
+                                        withAction:action
+                                          andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nullable DAOActivity*)activity

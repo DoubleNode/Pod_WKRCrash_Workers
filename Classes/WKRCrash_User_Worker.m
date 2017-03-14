@@ -203,6 +203,23 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAOUser*)user
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doCheckFlagObject:user
+                                    withAction:action
+                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFollowUser:(nonnull DAOUser*)user
            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
 {

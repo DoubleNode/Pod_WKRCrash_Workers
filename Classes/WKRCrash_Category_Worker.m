@@ -200,6 +200,23 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAOCategory*)category
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doCheckFlagObject:category
+                                        withAction:action
+                                          andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemsForObject:(nonnull DAOCategory*)category

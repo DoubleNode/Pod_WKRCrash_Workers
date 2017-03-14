@@ -219,6 +219,23 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAOLocation*)location
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doCheckFlagObject:location
+                                        withAction:action
+                                          andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block
 {

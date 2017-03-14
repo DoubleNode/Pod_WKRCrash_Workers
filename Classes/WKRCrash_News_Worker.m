@@ -149,4 +149,21 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAONews*)news
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLNewsBlockVoidBOOLNSError)block
+{
+    if (self.nextNewsWorker)
+    {
+        [self.nextNewsWorker doCheckFlagObject:news
+                                    withAction:action
+                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end

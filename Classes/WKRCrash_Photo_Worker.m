@@ -198,6 +198,23 @@
     @throw exception;
 }
 
+- (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
+{
+    if (self.nextPhotoWorker)
+    {
+        [self.nextPhotoWorker doCheckFlagObject:photo
+                                     withAction:action
+                                       andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOPhoto*)photo
