@@ -245,6 +245,44 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAOItem*)item
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doFlagObject:item
+                               withAction:action
+                                  andText:text
+                                 andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAOItem*)item
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doUnflagObject:item
+                                 withAction:action
+                                    andText:text
+                                   andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block
 {

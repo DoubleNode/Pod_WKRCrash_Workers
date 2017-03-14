@@ -111,6 +111,44 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAOActivity*)activity
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLActivityBlockVoidNSError)block
+{
+    if (self.nextActivityWorker)
+    {
+        [self.nextActivityWorker doFlagObject:activity
+                                   withAction:action
+                                      andText:text
+                                     andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAOActivity*)activity
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLActivityBlockVoidNSError)block
+{
+    if (self.nextActivityWorker)
+    {
+        [self.nextActivityWorker doUnflagObject:activity
+                                     withAction:action
+                                        andText:text
+                                       andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nullable DAOActivity*)activity

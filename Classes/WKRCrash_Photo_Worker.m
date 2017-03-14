@@ -160,6 +160,44 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAOPhoto*)photo
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLPhotoBlockVoidNSError)block
+{
+    if (self.nextPhotoWorker)
+    {
+        [self.nextPhotoWorker doFlagObject:photo
+                                withAction:action
+                                   andText:text
+                                  andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAOPhoto*)photo
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLPhotoBlockVoidNSError)block
+{
+    if (self.nextPhotoWorker)
+    {
+        [self.nextPhotoWorker doUnflagObject:photo
+                                  withAction:action
+                                     andText:text
+                                    andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOPhoto*)photo

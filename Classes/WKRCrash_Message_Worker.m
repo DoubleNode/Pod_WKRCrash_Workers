@@ -79,4 +79,44 @@
     @throw exception;
 }
 
+/*
+- (void)doFlagObject:(nonnull DAOMessage*)message
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLMessageBlockVoidNSError)block
+{
+    if (self.nextMessageWorker)
+    {
+        [self.nextMessageWorker doFlagObject:message
+                                  withAction:action
+                                     andText:text
+                                    andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAOMessage*)message
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLMessageBlockVoidNSError)block
+{
+    if (self.nextMessageWorker)
+    {
+        [self.nextMessageWorker doUnflagObject:message
+                                    withAction:action
+                                       andText:text
+                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+*/
+
 @end

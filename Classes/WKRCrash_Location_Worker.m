@@ -181,6 +181,44 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAOLocation*)location
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLLocationBlockVoidNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doFlagObject:location
+                                   withAction:action
+                                      andText:text
+                                     andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAOLocation*)location
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLLocationBlockVoidNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doUnflagObject:location
+                                     withAction:action
+                                        andText:text
+                                       andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block
 {

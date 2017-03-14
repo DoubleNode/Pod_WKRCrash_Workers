@@ -111,4 +111,42 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAONews*)news
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLNewsBlockVoidNSError)block
+{
+    if (self.nextNewsWorker)
+    {
+        [self.nextNewsWorker doFlagObject:news
+                               withAction:action
+                                  andText:text
+                                 andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUnflagObject:(nonnull DAONews*)news
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLNewsBlockVoidNSError)block
+{
+    if (self.nextNewsWorker)
+    {
+        [self.nextNewsWorker doUnflagObject:news
+                                 withAction:action
+                                    andText:text
+                                   andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end
