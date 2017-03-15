@@ -202,7 +202,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOCategory*)category
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLCategoryBlockVoidNSUIntegerNSError)block
 {
     if (self.nextCategoryWorker)
     {

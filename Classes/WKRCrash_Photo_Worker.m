@@ -200,7 +200,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLPhotoBlockVoidNSUIntegerNSError)block
 {
     if (self.nextPhotoWorker)
     {

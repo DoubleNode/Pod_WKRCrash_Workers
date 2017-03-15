@@ -285,7 +285,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOItem*)item
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLItemBlockVoidNSUIntegerNSError)block
 {
     if (self.nextItemWorker)
     {

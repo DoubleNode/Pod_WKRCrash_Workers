@@ -151,7 +151,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAONews*)news
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLNewsBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLNewsBlockVoidNSUIntegerNSError)block
 {
     if (self.nextNewsWorker)
     {

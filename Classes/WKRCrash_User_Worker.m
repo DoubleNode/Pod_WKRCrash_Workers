@@ -205,7 +205,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOUser*)user
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLUserBlockVoidNSUIntegerNSError)block
 {
     if (self.nextUserWorker)
     {

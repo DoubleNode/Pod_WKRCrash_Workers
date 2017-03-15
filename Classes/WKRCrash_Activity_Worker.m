@@ -151,7 +151,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOActivity*)activity
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLActivityBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLActivityBlockVoidNSUIntegerNSError)block
 {
     if (self.nextActivityWorker)
     {

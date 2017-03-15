@@ -120,7 +120,7 @@
 
 - (void)doCheckFlagObject:(nonnull DAOLocation*)location
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+                 andBlock:(nullable PTCLLocationBlockVoidNSUIntegerNSError)block
 {
     if (self.nextLocationWorker)
     {
