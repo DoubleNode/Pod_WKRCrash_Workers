@@ -285,4 +285,25 @@
     @throw exception;
 }
 
+#pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextPhotoWorker)
+    {
+        [self.nextPhotoWorker doLoadFlagsForObject:photo
+                                        withAction:action
+                                          andBlock:block
+                                    andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end

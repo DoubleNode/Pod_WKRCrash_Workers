@@ -304,6 +304,25 @@
 
 #pragma mark - Business Logic / Collection Items CRUD
 
+- (void)doLoadFlagsForObject:(nonnull DAOLocation*)location
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadFlagsForObject:location
+                                           withAction:action
+                                             andBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
         withLongitude:(nullable NSNumber*)longitude

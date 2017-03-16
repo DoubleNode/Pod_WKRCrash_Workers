@@ -166,4 +166,25 @@
     @throw exception;
 }
 
+#pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadFlagsForObject:(nonnull DAONews*)news
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextNewsWorker)
+    {
+        [self.nextNewsWorker doLoadFlagsForObject:news
+                                       withAction:action
+                                         andBlock:block
+                                   andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end

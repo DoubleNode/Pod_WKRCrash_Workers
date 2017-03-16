@@ -412,7 +412,7 @@
     @throw exception;
 }
 
-#pragma mark - Business Logic / Single Item Relationship CRUD
+#pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOUser*)user
                   withAction:(nonnull NSString*)action

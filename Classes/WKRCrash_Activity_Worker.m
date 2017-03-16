@@ -255,6 +255,25 @@
 
 #pragma mark - Business Logic / Collection Items CRUD
 
+- (void)doLoadFlagsForObject:(nullable DAOActivity*)activity
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextActivityWorker)
+    {
+        [self.nextActivityWorker doLoadFlagsForObject:activity
+                                           withAction:action
+                                             andBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjectsWithParameters:(nullable NSDictionary*)parameters
                            andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                      andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
