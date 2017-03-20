@@ -306,4 +306,23 @@
     @throw exception;
 }
 
+- (void)doLoadMyFlagsForObject:(nonnull DAOPhoto*)photo
+                    withAction:(nonnull NSString*)action
+                      andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextPhotoWorker)
+    {
+        [self.nextPhotoWorker doLoadMyFlagsForObject:photo
+                                          withAction:action
+                                            andBlock:block
+                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end

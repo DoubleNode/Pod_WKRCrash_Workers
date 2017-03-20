@@ -274,6 +274,25 @@
     @throw exception;
 }
 
+- (void)doLoadMyFlagsForObject:(nonnull DAOCategory*)category
+                    withAction:(nonnull NSString*)action
+                      andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doLoadMyFlagsForObject:category
+                                             withAction:action
+                                               andBlock:block
+                                         andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
         withLongitude:(nullable NSNumber*)longitude

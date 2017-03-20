@@ -452,4 +452,23 @@
     @throw exception;
 }
 
+- (void)doLoadMyFlagsForObject:(nonnull DAOUser*)user
+                    withAction:(nonnull NSString*)action
+                      andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doLoadMyFlagsForObject:user
+                                         withAction:action
+                                           andBlock:block
+                                     andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end
