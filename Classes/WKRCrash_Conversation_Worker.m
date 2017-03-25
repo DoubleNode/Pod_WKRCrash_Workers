@@ -64,6 +64,23 @@
 
 #pragma mark - Business Logic / Single Item CRUD
 
+- (void)doLoadObjectForId:(nonnull NSString*)conversationId
+                withBlock:(nullable PTCLConversationBlockVoidDAOConversationNSErrorContinue)block
+           andUpdateBlock:(nullable PTCLConversationBlockVoidDAOConversationNSError)updateBlock
+{
+    if (self.nextConversationWorker)
+    {
+        [self.nextConversationWorker doLoadObjectForId:conversationId
+                                             withBlock:block
+                                        andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doDeleteObject:(nonnull DAOConversation*)conversation
              withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block
 {
