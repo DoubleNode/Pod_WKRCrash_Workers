@@ -64,6 +64,38 @@
 
 #pragma mark - Business Logic / Single Item CRUD
 
+- (void)doLoadObjectForId:(nonnull NSString*)messageId
+                withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
+           andUpdateBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)updateBlock
+{
+    if (self.nextMessageWorker)
+    {
+        [self.nextMessageWorker doLoadObjectForId:messageId
+                                        withBlock:block
+                                   andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteObject:(nonnull DAOMessage*)message
+             withBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block
+{
+    if (self.nextMessageWorker)
+    {
+        [self.nextMessageWorker doDeleteObject:message
+                                     withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doSaveObject:(nonnull DAOMessage*)message
            withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block
 {
@@ -78,83 +110,5 @@
                                                       userInfo:nil];
     @throw exception;
 }
-
-/*
-- (void)doFlagObject:(nonnull DAOMessage*)message
-          withAction:(nonnull NSString*)action
-             andText:(nonnull NSString*)text
-            andBlock:(nullable PTCLMessageBlockVoidNSError)block
-{
-    if (self.nextMessageWorker)
-    {
-        [self.nextMessageWorker doFlagObject:message
-                                  withAction:action
-                                     andText:text
-                                    andBlock:block];
-    }
-    
-    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
-                                                        reason:@"Crash worker should not be actually used!"
-                                                      userInfo:nil];
-    @throw exception;
-}
-
-- (void)doUnflagObject:(nonnull DAOMessage*)message
-            withAction:(nonnull NSString*)action
-               andText:(nonnull NSString*)text
-              andBlock:(nullable PTCLMessageBlockVoidNSError)block
-{
-    if (self.nextMessageWorker)
-    {
-        [self.nextMessageWorker doUnflagObject:message
-                                    withAction:action
-                                       andText:text
-                                      andBlock:block];
-    }
-    
-    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
-                                                        reason:@"Crash worker should not be actually used!"
-                                                      userInfo:nil];
-    @throw exception;
-}
-
-- (void)doCheckFlagObject:(nonnull DAOLocation*)location
-               withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLLocationBlockVoidNSUIntegerNSError)block
-{
-    if (self.nextLocationWorker)
-    {
-        [self.nextLocationWorker doCheckFlagObject:location
-                                        withAction:action
-                                          andBlock:block];
-    }
-    
-    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
-                                                        reason:@"Crash worker should not be actually used!"
-                                                      userInfo:nil];
-    @throw exception;
-}
-
-#pragma mark - Business Logic / Collection Items CRUD
-
-- (void)doLoadFlagsForObject:(nonnull DAOLocation*)location
-                  withAction:(nonnull NSString*)action
-                    andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
-              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
-{
-    if (self.nextItemWorker)
-    {
-        [self.nextItemWorker doLoadFlagsForObject:item
-                                       withAction:action
-                                         andBlock:block
-                                   andUpdateBlock:updateBlock];
-    }
-    
-    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
-                                                        reason:@"Crash worker should not be actually used!"
-                                                      userInfo:nil];
-    @throw exception;
-}
- */
 
 @end
