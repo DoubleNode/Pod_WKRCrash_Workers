@@ -288,14 +288,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadFlagsForObject:photo
-                                        withAction:action
+                                       withActions:actions
                                           andBlock:block
                                     andUpdateBlock:updateBlock];
     }
@@ -307,14 +307,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOPhoto*)photo
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadMyFlagsForObject:photo
-                                          withAction:action
+                                         withActions:actions
                                             andBlock:block
                                       andUpdateBlock:updateBlock];
     }

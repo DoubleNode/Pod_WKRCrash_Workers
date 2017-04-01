@@ -305,14 +305,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOLocation*)location
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextLocationWorker)
     {
         [self.nextLocationWorker doLoadFlagsForObject:location
-                                           withAction:action
+                                          withActions:actions
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
     }
@@ -324,14 +324,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOLocation*)location
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextLocationWorker)
     {
         [self.nextLocationWorker doLoadMyFlagsForObject:location
-                                             withAction:action
+                                            withActions:actions
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
     }

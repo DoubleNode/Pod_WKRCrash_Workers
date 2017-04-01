@@ -169,14 +169,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAONews*)news
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextNewsWorker)
     {
         [self.nextNewsWorker doLoadFlagsForObject:news
-                                       withAction:action
+                                      withActions:actions
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
     }
@@ -188,14 +188,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAONews*)news
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextNewsWorker)
     {
         [self.nextNewsWorker doLoadMyFlagsForObject:news
-                                         withAction:action
+                                        withActions:actions
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
     }

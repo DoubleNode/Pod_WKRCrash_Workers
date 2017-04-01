@@ -256,14 +256,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nullable DAOActivity*)activity
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadFlagsForObject:activity
-                                           withAction:action
+                                          withActions:actions
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
     }
@@ -275,14 +275,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nullable DAOActivity*)activity
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadMyFlagsForObject:activity
-                                             withAction:action
+                                            withActions:actions
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
     }

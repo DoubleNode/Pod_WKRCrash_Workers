@@ -415,14 +415,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadAllFlagsForObject:(nonnull DAOUser*)user
-                     withAction:(nonnull NSString*)action
+                    withActions:(nonnull NSArray<NSString*>*)actions
                        andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 {
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doLoadAllFlagsForObject:user
-                                          withAction:action
+                                         withActions:actions
                                             andBlock:block
                                       andUpdateBlock:updateBlock];
     }
@@ -434,14 +434,14 @@
 }
 
 - (void)doLoadFlagsForObject:(nonnull DAOUser*)user
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doLoadFlagsForObject:user
-                                       withAction:action
+                                      withActions:actions
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
     }
@@ -453,14 +453,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOUser*)user
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doLoadMyFlagsForObject:user
-                                         withAction:action
+                                        withActions:actions
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
     }

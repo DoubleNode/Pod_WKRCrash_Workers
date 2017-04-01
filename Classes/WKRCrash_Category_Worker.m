@@ -256,14 +256,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOCategory*)category
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadFlagsForObject:category
-                                           withAction:action
+                                          withActions:actions
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
     }
@@ -275,14 +275,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOCategory*)category
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadMyFlagsForObject:category
-                                             withAction:action
+                                            withActions:actions
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
     }

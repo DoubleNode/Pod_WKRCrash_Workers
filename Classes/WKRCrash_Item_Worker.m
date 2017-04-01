@@ -369,14 +369,14 @@
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOItem*)item
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextItemWorker)
     {
         [self.nextItemWorker doLoadFlagsForObject:item
-                                       withAction:action
+                                      withActions:actions
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
     }
@@ -388,14 +388,14 @@
 }
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOItem*)item
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextItemWorker)
     {
         [self.nextItemWorker doLoadMyFlagsForObject:item
-                                         withAction:action
+                                        withActions:actions
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
     }
