@@ -8,6 +8,8 @@
 
 #import "WKRCrash_Item_Worker.h"
 
+@class DAOUser;
+
 @implementation WKRCrash_Item_Worker
 
 @synthesize nextBaseWorker;
@@ -256,6 +258,44 @@
                                withAction:action
                                   andText:text
                                  andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doFlagObject:(nonnull DAOItem*)item
+             forUser:(nullable DAOUser*)flaggingUser
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doFlagObject:item
+                                  forUser:flaggingUser
+                               withAction:action
+                                  andText:text
+                                 andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteFlag:(nonnull DAOFlag*)flag
+           forObject:(nonnull DAOItem*)item
+           withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doDeleteFlag:flag
+                                forObject:item
+                                withBlock:block];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

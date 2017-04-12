@@ -8,6 +8,8 @@
 
 #import "WKRCrash_Category_Worker.h"
 
+@class DAOUser;
+
 @implementation WKRCrash_Category_Worker
 
 @synthesize nextBaseWorker;
@@ -173,6 +175,44 @@
                                    withAction:action
                                       andText:text
                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doFlagObject:(nonnull DAOCategory*)category
+             forUser:(nullable DAOUser*)flaggingUser
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doFlagObject:category
+                                      forUser:flaggingUser
+                                   withAction:action
+                                      andText:text
+                                     andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteFlag:(nonnull DAOFlag*)flag
+           forObject:(nonnull DAOCategory*)category
+           withBlock:(nullable PTCLCategoryBlockVoidNSError)block
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doDeleteFlag:flag
+                                    forObject:category
+                                    withBlock:block];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

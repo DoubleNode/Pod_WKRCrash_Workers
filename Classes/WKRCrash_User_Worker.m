@@ -184,6 +184,44 @@
     @throw exception;
 }
 
+- (void)doFlagObject:(nonnull DAOUser*)user
+             forUser:(nullable DAOUser*)flaggingUser
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLUserBlockVoidNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doFlagObject:user
+                                  forUser:flaggingUser
+                               withAction:action
+                                  andText:text
+                                 andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteFlag:(nonnull DAOFlag*)flag
+           forObject:(nonnull DAOUser*)user
+           withBlock:(nullable PTCLUserBlockVoidNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doDeleteFlag:flag
+                                forObject:user
+                                withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doUnflagObject:(nonnull DAOUser*)user
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
