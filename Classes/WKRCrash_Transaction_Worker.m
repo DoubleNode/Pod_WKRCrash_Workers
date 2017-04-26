@@ -66,15 +66,17 @@
 
 #pragma mark - Business Logic / Single Item CRUD
 
-- (void)doLoadObjectForId:(nonnull NSString*)transactionId
-                withBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSErrorContinue)block
-           andUpdateBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSError)updateBlock
+- (void)doLoadObjectForOrderId:(nonnull NSString*)orderId
+                         andId:(nonnull NSString*)transactionId
+                     withBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSError)updateBlock
 {
     if (self.nextTransactionWorker)
     {
-        [self.nextTransactionWorker doLoadObjectForId:transactionId
-                                            withBlock:block
-                                       andUpdateBlock:updateBlock];
+        [self.nextTransactionWorker doLoadObjectForOrderId:orderId
+                                                     andId:transactionId
+                                                 withBlock:block
+                                            andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
