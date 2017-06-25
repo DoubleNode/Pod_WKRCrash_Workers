@@ -260,13 +260,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemsForObject:(nonnull DAOCategory*)category
-                   withBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+              withParameters:(nullable NSDictionary*)parameters
+                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadItemsForObject:category
-                                            withBlock:block
+                                       withParameters:parameters
+                                             andBlock:block
                                        andUpdateBlock:updateBlock];
     }
     
