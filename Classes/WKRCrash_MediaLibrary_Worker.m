@@ -127,6 +127,21 @@
     @throw exception;
 }
 
+- (void)doLoadImagesForCollection:(id)assetCollection
+              withCompletionBlock:(PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doLoadImagesForCollection:assetCollection
+                                           withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadImage:(nonnull id)asset
                size:(CGSize)size
     completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock
