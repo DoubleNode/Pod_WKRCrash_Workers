@@ -101,6 +101,19 @@
     @throw exception;
 }
 
+- (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doLoadCollectionsWithCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadImagesWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
 {
     if (self.nextMediaLibraryWorker)
