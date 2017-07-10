@@ -111,4 +111,23 @@
     @throw exception;
 }
 
+#pragma mark - Business Logic / Single Item Relationship CRUD
+
+- (void)doLoadPhotosForObject:(nonnull DAOMessage*)message
+                    withBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextMessageWorker)
+    {
+        [self.nextMessageWorker doLoadPhotosForObject:message
+                                            withBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 @end
