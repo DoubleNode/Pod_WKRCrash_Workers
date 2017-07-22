@@ -177,6 +177,40 @@
     @throw exception;
 }
 
+- (void)doLoadLocationForObject:(nonnull DAORating*)rating
+                      withBlock:(nullable PTCLRatingBlockVoidDAOLocationNSErrorContinue)block
+                 andUpdateBlock:(nullable PTCLRatingBlockVoidDAOLocationNSError)updateBlock
+{
+    if (self.nextRatingWorker)
+    {
+        [self.nextRatingWorker doLoadLocationForObject:rating
+                                             withBlock:block
+                                        andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadReviewForObject:(nonnull DAORating*)rating
+                    withBlock:(nullable PTCLRatingBlockVoidDAOReviewNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLRatingBlockVoidDAOReviewNSError)updateBlock
+{
+    if (self.nextRatingWorker)
+    {
+        [self.nextRatingWorker doLoadReviewForObject:rating
+                                           withBlock:block
+                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadUserForObject:(nonnull DAORating*)rating
                   withBlock:(nullable PTCLRatingBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLRatingBlockVoidDAOUserNSError)updateBlock
@@ -207,6 +241,44 @@
                                      withParameters:parameters
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextRatingWorker)
+    {
+        [self.nextRatingWorker doLoadObjectsForLocation:location
+                                         withParameters:parameters
+                                               andBlock:block
+                                         andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsForReview:(nonnull DAOReview*)review
+                withParameters:(nullable NSDictionary*)parameters
+                      andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextRatingWorker)
+    {
+        [self.nextRatingWorker doLoadObjectsForReview:review
+                                       withParameters:parameters
+                                             andBlock:block
+                                       andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

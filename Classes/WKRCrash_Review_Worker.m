@@ -145,6 +145,40 @@
     @throw exception;
 }
 
+- (void)doLoadLocationForObject:(nonnull DAOReview*)review
+                      withBlock:(nullable PTCLReviewBlockVoidDAOLocationNSErrorContinue)block
+                 andUpdateBlock:(nullable PTCLReviewBlockVoidDAOLocationNSError)updateBlock
+{
+    if (self.nextReviewWorker)
+    {
+        [self.nextReviewWorker doLoadLocationForObject:review
+                                             withBlock:block
+                                        andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadPhotoForObject:(nonnull DAOReview*)review
+                   withBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSError)updateBlock
+{
+    if (self.nextReviewWorker)
+    {
+        [self.nextReviewWorker doLoadPhotoForObject:review
+                                          withBlock:block
+                                     andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadUserForObject:(nonnull DAOReview*)review
                   withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock
@@ -175,6 +209,25 @@
                                      withParameters:parameters
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextReviewWorker)
+    {
+        [self.nextReviewWorker doLoadObjectsForLocation:location
+                                         withParameters:parameters
+                                               andBlock:block
+                                         andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
