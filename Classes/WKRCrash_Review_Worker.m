@@ -128,6 +128,23 @@
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
+- (void)doLoadCreatorForObject:(nonnull DAOReview*)review
+                     withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock
+{
+    if (self.nextReviewWorker)
+    {
+        [self.nextReviewWorker doLoadCreatorForObject:review
+                                            withBlock:block
+                                       andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadItemForObject:(nonnull DAOReview*)review
                   withBlock:(nullable PTCLReviewBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOItemNSError)updateBlock

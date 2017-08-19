@@ -12,7 +12,7 @@ pod lib lint --sources=git@github.com:DoubleNode/SpecsPrivateRepo.git,master --p
 pod spec lint --sources=git@github.com:DoubleNode/SpecsPrivateRepo.git,master --private --allow-warnings
 
 4. Final Submit
-pod repo push DoubleNodeSpecs WKRCrash_Workers.podspec
+pod repo push DoubleNodeSpecs WKRCrash_Workers.podspec --allow-warnings
 
 
 Steps to Resource Podfile Pods
