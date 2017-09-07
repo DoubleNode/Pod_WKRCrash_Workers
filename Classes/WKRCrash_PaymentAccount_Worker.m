@@ -111,6 +111,25 @@
     @throw exception;
 }
 
+- (void)doVerifyObject:(nonnull DAOPaymentAccount*)paymentAccount
+          withDeposit1:(NSUInteger)deposit1
+           andDeposit2:(NSUInteger)deposit2
+              andBlock:(nullable PTCLPaymentAccountBlockVoidBOOLNSError)block
+{
+    if (self.nextPaymentAccountWorker)
+    {
+        [self.nextPaymentAccountWorker doVerifyObject:paymentAccount
+                                         withDeposit1:deposit1
+                                          andDeposit2:deposit2
+                                             andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadContactForObject:(nonnull DAOPaymentAccount*)paymentAccount
