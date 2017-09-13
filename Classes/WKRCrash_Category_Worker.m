@@ -257,6 +257,40 @@
     @throw exception;
 }
 
+- (void)doTagObject:(nonnull DAOCategory*)category
+            withTag:(nonnull NSString*)tag
+           andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doTagObject:category
+                                     withTag:tag
+                                    andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUntagObject:(nonnull DAOCategory*)category
+              withTag:(nonnull NSString*)tag
+             andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doUntagObject:category
+                                       withTag:tag
+                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemsForObject:(nonnull DAOCategory*)category
@@ -280,7 +314,7 @@
 
 - (void)doLoadPhotosForObject:(nonnull DAOCategory*)category
                     withBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
-               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
+               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
@@ -335,13 +369,30 @@
     @throw exception;
 }
 
+- (void)doLoadTagsForObject:(nonnull DAOCategory*)category
+                   andBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doLoadTagsForObject:category
+                                            andBlock:block
+                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
         withLongitude:(nullable NSNumber*)longitude
          withLatitude:(nullable NSNumber*)latitude
        withParameters:(nullable NSDictionary*)parameters
              andBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
-       andUpdateBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
+       andUpdateBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
@@ -352,6 +403,25 @@
                                 withParameters:parameters
                                       andBlock:block
                                 andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsWithTag:(nonnull NSString*)tag
+              withParameters:(nullable NSDictionary*)parameters
+                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextCategoryWorker)
+    {
+        [self.nextCategoryWorker doLoadObjectsWithTag:tag
+                                       withParameters:parameters
+                                             andBlock:block
+                                       andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

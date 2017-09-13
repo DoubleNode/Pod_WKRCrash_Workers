@@ -306,6 +306,40 @@
     @throw exception;
 }
 
+- (void)doTagObject:(nonnull DAOLocation*)location
+            withTag:(nonnull NSString*)tag
+           andBlock:(nullable PTCLLocationBlockVoidNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doTagObject:location
+                                     withTag:tag
+                                    andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUntagObject:(nonnull DAOLocation*)location
+              withTag:(nonnull NSString*)tag
+             andBlock:(nullable PTCLLocationBlockVoidNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doUntagObject:location
+                                       withTag:tag
+                                      andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemsForObject:(nonnull DAOLocation*)location
@@ -382,6 +416,23 @@
     @throw exception;
 }
 
+- (void)doLoadTagsForObject:(nonnull DAOLocation*)location
+                   andBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadTagsForObject:location
+                                            andBlock:block
+                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
         withLongitude:(nullable NSNumber*)longitude
@@ -399,6 +450,25 @@
                                 withParameters:parameters
                                       andBlock:block
                                 andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsWithTag:(nonnull NSString*)tag
+              withParameters:(nullable NSDictionary*)parameters
+                    andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadObjectsWithTag:tag
+                                       withParameters:parameters
+                                             andBlock:block
+                                       andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
