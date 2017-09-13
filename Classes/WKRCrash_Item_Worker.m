@@ -355,6 +355,40 @@
     @throw exception;
 }
 
+- (void)doTagObject:(nonnull DAOItem*)item
+            withTag:(nonnull NSString*)tag
+           andBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doTagObject:item
+                                 withTag:tag
+                                andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUntagObject:(nonnull DAOItem*)item
+              withTag:(nonnull NSString*)tag
+             andBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doUntagObject:item
+                                   withTag:tag
+                                  andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block
 {
@@ -461,6 +495,23 @@
     @throw exception;
 }
 
+- (void)doLoadTagsForObject:(nonnull DAOItem*)item
+                   andBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadTagsForObject:item
+                                        andBlock:block
+                                  andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
        withParameters:(nullable NSDictionary*)parameters
@@ -474,6 +525,25 @@
                             withParameters:parameters
                                   andBlock:block
                             andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsWithTag:(nonnull NSString*)tag
+              withParameters:(nullable NSDictionary*)parameters
+                    andBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadObjectsWithTag:tag
+                                   withParameters:parameters
+                                         andBlock:block
+                                   andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

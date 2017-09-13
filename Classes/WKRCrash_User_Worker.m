@@ -288,6 +288,40 @@
     @throw exception;
 }
 
+- (void)doTagObject:(nonnull DAOUser*)user
+            withTag:(nonnull NSString*)tag
+           andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doTagObject:user
+                                 withTag:tag
+                                andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doUntagObject:(nonnull DAOUser*)user
+              withTag:(nonnull NSString*)tag
+             andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doUntagObject:user
+                                   withTag:tag
+                                  andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoad:(nonnull NSString*)userId
      withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block
 {
@@ -317,6 +351,8 @@
                                                       userInfo:nil];
     @throw exception;
 }
+
+#pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadAvatarForUser:(nonnull DAOUser*)user
                   withBlock:(nullable PTCLUserBlockVoidDAOPhotoNSError)block
@@ -501,6 +537,42 @@
                                         withActions:actions
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadTagsForObject:(nonnull DAOUser*)user
+                   andBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doLoadTagsForObject:user
+                                        andBlock:block
+                                  andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadObjectsWithTag:(nonnull NSString*)tag
+              withParameters:(nullable NSDictionary*)parameters
+                    andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doLoadObjectsWithTag:tag
+                                   withParameters:parameters
+                                         andBlock:block
+                                   andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
