@@ -165,6 +165,21 @@
     @throw exception;
 }
 
+- (void)doCheckPendingTransactions:(nonnull DAOUser*)user
+                          andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doCheckPendingTransactions:user
+                                               andBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doFlagObject:(nonnull DAOUser*)user
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
