@@ -66,6 +66,11 @@
     // Options not used in this Worker
 }
 
+- (void)configure
+{
+    [super configure];
+}
+
 #pragma mark - Business Logic
 
 - (BOOL)doCheckForAccessTokenError:(nullable NSData*)errorData
@@ -552,7 +557,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doLoadTagsForObject:user
-                                        andBlock:block
+                                       withBlock:block
                                   andUpdateBlock:updateBlock];
     }
     
@@ -573,6 +578,23 @@
                                    withParameters:parameters
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadTagsForObject:(nonnull DAOUser*)user
+                  withBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextUserWorker)
+    {
+        [self.nextUserWorker doLoadTagsForObject:user
+                                       withBlock:block
+                                  andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

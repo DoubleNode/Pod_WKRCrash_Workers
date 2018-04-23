@@ -64,6 +64,11 @@
     // Options not used in this Worker
 }
 
+- (void)configure
+{
+    [super configure];
+}
+
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)itemId
@@ -346,7 +351,7 @@
     if (self.nextItemWorker)
     {
         [self.nextItemWorker doSaveFlag:flag
-                               andBlock:block];
+                              withBlock:block];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -502,7 +507,7 @@
     if (self.nextItemWorker)
     {
         [self.nextItemWorker doLoadTagsForObject:item
-                                        andBlock:block
+                                       withBlock:block
                                   andUpdateBlock:updateBlock];
     }
     
@@ -544,6 +549,38 @@
                                    withParameters:parameters
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadTagsForObject:(nonnull DAOItem*)item
+                  withBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doLoadTagsForObject:item
+                                       withBlock:block
+                                  andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveFlag:(nonnull DAOFlag*)flag
+         withBlock:(nullable PTCLItemBlockVoidNSError)block
+{
+    if (self.nextItemWorker)
+    {
+        [self.nextItemWorker doSaveFlag:flag
+                              withBlock:block];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

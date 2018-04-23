@@ -64,6 +64,11 @@
     // Options not used in this Worker
 }
 
+- (void)configure
+{
+    [super configure];
+}
+
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)locationId
@@ -423,7 +428,7 @@
     if (self.nextLocationWorker)
     {
         [self.nextLocationWorker doLoadTagsForObject:location
-                                            andBlock:block
+                                           withBlock:block
                                       andUpdateBlock:updateBlock];
     }
     
@@ -469,6 +474,23 @@
                                        withParameters:parameters
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadTagsForObject:(nonnull DAOLocation*)location
+                  withBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+             andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadTagsForObject:location
+                                           withBlock:block
+                                      andUpdateBlock:updateBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
