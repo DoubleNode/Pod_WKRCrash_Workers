@@ -83,6 +83,21 @@
     @throw exception;
 }
 
+- (void)doLoadImageWithUrl:(nonnull NSURL*)url
+                 withBlock:(nullable PTCLCacheBlockVoidUIImageNSDataNSErrorNSURL)block;
+{
+    if (self.nextCacheWorker)
+    {
+        [self.nextCacheWorker doLoadImageWithUrl:url
+                                       withBlock:block];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doDeleteObjectForId:(nonnull NSString*)cacheId
                   withBlock:(nullable PTCLCacheBlockVoidNSError)block
 {
