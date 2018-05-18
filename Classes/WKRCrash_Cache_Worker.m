@@ -83,13 +83,13 @@
     @throw exception;
 }
 
-- (void)doLoadImageWithUrl:(nonnull NSURL*)url
-                 withBlock:(nullable PTCLCacheBlockVoidUIImageNSDataNSErrorNSURL)block;
+- (void)doLoadImageForUrl:(nonnull NSURL*)url
+                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block
 {
     if (self.nextCacheWorker)
     {
-        [self.nextCacheWorker doLoadImageWithUrl:url
-                                       withBlock:block];
+        [self.nextCacheWorker doLoadImageForUrl:url
+                                      withBlock:block];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
