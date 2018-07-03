@@ -6,7 +6,7 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#import <Photos/PHImageManager.h>
+@import Photos;
 
 #import "WKRCrash_MediaLibrary_Worker.h"
 
@@ -75,6 +75,8 @@
     return PHImageManagerMaximumSize;
 }
 
+#pragma mark - Business Logic / Single Item CRUD
+
 - (BOOL)doCheckAuthorization
 {
     if (self.nextMediaLibraryWorker)
@@ -100,6 +102,123 @@
                                                       userInfo:nil];
     @throw exception;
 }
+
+#pragma mark - Business Logic / Single Item Relationship CRUD
+
+- (void)doLoadImage:(nonnull id)asset
+               size:(CGSize)size
+    completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doLoadImage:asset
+                                            size:size
+                                 completionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveImage:(UIImage* _Nullable)image
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveImage:image
+                             withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveImage:(UIImage* _Nullable)image
+       toCollection:(nonnull id)assetCollection
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveImage:image
+                                    toCollection:assetCollection
+                             withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
+                                           toCollection:assetCollection
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
+                                           toCollection:assetCollection
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+#pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
 {
@@ -127,30 +246,13 @@
     @throw exception;
 }
 
-- (void)doLoadImagesForCollection:(id)assetCollection
-              withCompletionBlock:(PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+- (void)doLoadImagesForCollection:(nonnull id)assetCollection
+              withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadImagesForCollection:assetCollection
                                            withCompletionBlock:completionBlock];
-    }
-    
-    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
-                                                        reason:@"Crash worker should not be actually used!"
-                                                      userInfo:nil];
-    @throw exception;
-}
-
-- (void)doLoadImage:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock
-{
-    if (self.nextMediaLibraryWorker)
-    {
-        [self.nextMediaLibraryWorker doLoadImage:asset
-                                            size:size
-                                 completionBlock:completionBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
