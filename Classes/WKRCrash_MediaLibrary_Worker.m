@@ -105,6 +105,23 @@
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
+- (void)doLoadAudio:(nonnull id)asset
+               size:(CGSize)size
+    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doLoadAudio:asset
+                                            size:size
+                                 completionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 - (void)doLoadImage:(nonnull id)asset
                size:(CGSize)size
     completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock
@@ -112,6 +129,23 @@
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadImage:asset
+                                            size:size
+                                 completionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doLoadVideo:(nonnull id)asset
+               size:(CGSize)size
+    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doLoadVideo:asset
                                             size:size
                                  completionBlock:completionBlock];
     }
@@ -153,6 +187,37 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
                                                       userInfo:nil];
     @throw exception;
 }
+
+- (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+{
+    if (self.nextMediaLibraryWorker)
+    {
+        [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
+                                           toCollection:assetCollection
+                                    withCompletionBlock:completionBlock];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;}
 
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
        withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
@@ -233,11 +298,13 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     @throw exception;
 }
 
-- (void)doLoadImagesWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+- (void)doLoadImagesOfMediaTypes:(nullable NSArray*)mediaTypes
+             withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
 {
     if (self.nextMediaLibraryWorker)
     {
-        [self.nextMediaLibraryWorker doLoadImagesWithCompletionBlock:completionBlock];
+        [self.nextMediaLibraryWorker doLoadImagesOfMediaTypes:mediaTypes
+                                          withCompletionBlock:completionBlock];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -247,11 +314,13 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 }
 
 - (void)doLoadImagesForCollection:(nonnull id)assetCollection
+                     ofMediaTypes:(nullable NSArray*)mediaTypes
               withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadImagesForCollection:assetCollection
+                                                  ofMediaTypes:mediaTypes
                                            withCompletionBlock:completionBlock];
     }
     
