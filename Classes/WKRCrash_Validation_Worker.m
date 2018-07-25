@@ -17,6 +17,29 @@
 @synthesize nextBaseWorker;
 @synthesize nextValidationWorker;
 
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+
+@synthesize minimumBirthdayAge;
+@synthesize maximumBirthdayAge;
+
+@synthesize minimumHandleLength;
+@synthesize maximumHandleLength;
+
+@synthesize minimumNameLength;
+@synthesize maximumNameLength;
+
+@synthesize minimumNumberValue;
+@synthesize maximumNumberValue;
+
+@synthesize requiredPasswordStrength;
+
+@synthesize minimumPercentageValue;
+@synthesize maximumPercentageValue;
+
+@synthesize minimumUnsignedNumberValue;
+@synthesize maximumUnsignedNumberValue;
+
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLValidation_Protocol>)nextValidationWorker
@@ -73,8 +96,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateBirthday:birthday
-                                                error:error];
+        return [self.nextValidationWorker doValidateBirthday:birthday
+                                                       error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -88,8 +111,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateEmail:email
-                                             error:error];
+        return [self.nextValidationWorker doValidateEmail:email
+                                                    error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -103,8 +126,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateHandle:handle
-                                              error:error];
+        return [self.nextValidationWorker doValidateHandle:handle
+                                                     error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -118,8 +141,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateName:name
-                                            error:error];
+        return [self.nextValidationWorker doValidateName:name
+                                                   error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -133,8 +156,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateNumber:number
-                                              error:error];
+        return [self.nextValidationWorker doValidateNumber:number
+                                                     error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -148,8 +171,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidatePassword:password
-                                                error:error];
+        return [self.nextValidationWorker doValidatePassword:password
+                                                       error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -163,8 +186,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidatePercentage:percentage
-                                                  error:error];
+        return [self.nextValidationWorker doValidatePercentage:percentage
+                                                         error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -178,8 +201,8 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateSearch:search
-                                              error:error];
+        return [self.nextValidationWorker doValidateSearch:search
+                                                     error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -193,8 +216,23 @@
 {
     if (self.nextValidationWorker)
     {
-        [self.nextValidationWorker doValidateState:state
-                                             error:error];
+        return [self.nextValidationWorker doValidateState:state
+                                                    error:error];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (BOOL)doValidateUnsignedNumber:(NSString*)number
+                           error:(NSError**)error
+{
+    if (self.nextValidationWorker)
+    {
+        return [self.nextValidationWorker doValidateUnsignedNumber:number
+                                                             error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
