@@ -8,10 +8,18 @@
 
 #import "WKRCrash_Rating_Worker.h"
 
+@interface WKRCrash_Rating_Worker ()
+
+@end
+
 @implementation WKRCrash_Rating_Worker
 
 @synthesize nextBaseWorker;
 @synthesize nextRatingWorker;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

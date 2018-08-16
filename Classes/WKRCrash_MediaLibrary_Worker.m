@@ -19,6 +19,10 @@
 @synthesize nextBaseWorker;
 @synthesize nextMediaLibraryWorker;
 
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
+
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLMediaLibrary_Protocol>)nextMediaLibraryWorker

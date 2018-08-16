@@ -17,9 +17,6 @@
 @synthesize nextBaseWorker;
 @synthesize nextValidationWorker;
 
-#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
-#define ERROR_UNKNOWN           1001
-
 @synthesize minimumBirthdayAge;
 @synthesize maximumBirthdayAge;
 
@@ -39,6 +36,10 @@
 
 @synthesize minimumUnsignedNumberValue;
 @synthesize maximumUnsignedNumberValue;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

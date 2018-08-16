@@ -8,10 +8,18 @@
 
 #import "WKRCrash_Activity_Worker.h"
 
+@interface WKRCrash_Activity_Worker ()
+
+@end
+
 @implementation WKRCrash_Activity_Worker
 
 @synthesize nextBaseWorker;
 @synthesize nextActivityWorker;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

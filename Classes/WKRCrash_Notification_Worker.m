@@ -8,10 +8,18 @@
 
 #import "WKRCrash_Notification_Worker.h"
 
+@interface WKRCrash_Notification_Worker ()
+
+@end
+
 @implementation WKRCrash_Notification_Worker
 
 @synthesize nextBaseWorker;
 @synthesize nextNotificationWorker;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

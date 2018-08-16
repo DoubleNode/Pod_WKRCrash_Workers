@@ -8,10 +8,18 @@
 
 #import "WKRCrash_Checkin_Worker.h"
 
+@interface WKRCrash_Checkin_Worker ()
+
+@end
+
 @implementation WKRCrash_Checkin_Worker
 
 @synthesize nextBaseWorker;
 @synthesize nextCheckinWorker;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

@@ -6,8 +6,7 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#import <DNCProtocols/PTCLContact_Protocol.h>
-#import <DNCProtocols/__WKR_Base_Worker.h>
+@import DNCProtocols;
 
 @interface WKRCrash_Contact_Worker : WKR_Base_Worker<PTCLContact_Protocol>
 

@@ -8,12 +8,18 @@
 
 #import "WKRCrash_Location_Worker.h"
 
-@class DAOUser;
+@interface WKRCrash_Location_Worker ()
+
+@end
 
 @implementation WKRCrash_Location_Worker
 
 @synthesize nextBaseWorker;
 @synthesize nextLocationWorker;
+
+#define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.%@", NSStringFromClass([self class])]
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_IMPLEMENTED   1002
 
 + (instancetype _Nonnull)worker   {   return [self worker:nil]; }
 

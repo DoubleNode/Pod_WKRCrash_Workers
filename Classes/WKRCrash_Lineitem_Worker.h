@@ -6,8 +6,7 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#import <DNCProtocols/PTCLLineitem_Protocol.h>
-#import <DNCProtocols/__WKR_Base_Worker.h>
+@import DNCProtocols;
 
 @interface WKRCrash_Lineitem_Worker : WKR_Base_Worker<PTCLLineitem_Protocol>
 
