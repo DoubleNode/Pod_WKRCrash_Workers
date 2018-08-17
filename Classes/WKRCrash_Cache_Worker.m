@@ -79,6 +79,7 @@
     {
         [self.nextCacheWorker doLoadObjectForId:cacheId
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -94,6 +95,7 @@
     {
         [self.nextCacheWorker doLoadImageForUrl:url
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -109,6 +111,7 @@
     {
         [self.nextCacheWorker doDeleteObjectForId:cacheId
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -126,6 +129,7 @@
         [self.nextCacheWorker doSaveObject:object
                                      forId:cacheId
                                  withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

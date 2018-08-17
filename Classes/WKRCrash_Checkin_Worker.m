@@ -81,6 +81,7 @@
         [self.nextCheckinWorker doLoadObjectForId:checkinId
                                         withBlock:block
                                    andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextCheckinWorker doDeleteObject:checkin
                                      withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextCheckinWorker doDeleteObjectForId:checkinId
                                           withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -126,6 +129,7 @@
     {
         [self.nextCheckinWorker doSaveObject:checkin
                                    withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -141,6 +145,7 @@
     {
         [self.nextCheckinWorker doFavoriteObject:checkin
                                        withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -156,6 +161,7 @@
     {
         [self.nextCheckinWorker doUnfavoriteObject:checkin
                                          withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -175,6 +181,7 @@
         [self.nextCheckinWorker doLoadLocationForObject:checkin
                                               withBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -192,6 +199,7 @@
         [self.nextCheckinWorker doLoadPhotoForObject:checkin
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -209,6 +217,7 @@
         [self.nextCheckinWorker doLoadUserForObject:checkin
                                           withBlock:block
                                      andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

@@ -81,6 +81,7 @@
         [self.nextOrderWorker doLoadObjectForId:orderId
                                       withBlock:block
                                  andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextOrderWorker doDeleteObject:order
                                    withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextOrderWorker doSaveObject:order
                                  withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -130,6 +133,7 @@
         [self.nextOrderWorker doLoadLineitemsForObject:order
                                              withBlock:block
                                         andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -147,6 +151,7 @@
         [self.nextOrderWorker doLoadTransactionsForObject:order
                                                 withBlock:block
                                            andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -156,6 +161,26 @@
 }
 
 #pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock
+{
+    if (self.nextOrderWorker)
+    {
+        [self.nextOrderWorker doLoadObjectsForLocation:location
+                                        withParameters:parameters
+                                              andBlock:block
+                                        andUpdateBlock:updateBlock];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
@@ -168,6 +193,7 @@
                                     withParameters:parameters
                                           andBlock:block
                                     andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

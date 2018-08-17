@@ -81,6 +81,7 @@
         [self.nextMessageWorker doLoadObjectForId:messageId
                                         withBlock:block
                                    andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextMessageWorker doDeleteObject:message
                                      withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextMessageWorker doSaveObject:message
                                    withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -130,6 +133,7 @@
         [self.nextMessageWorker doLoadPhotosForObject:message
                                             withBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

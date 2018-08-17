@@ -81,6 +81,7 @@
         [self.nextAuthWorker doLoadObjectForUser:user
                                        withBlock:block
                                   andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

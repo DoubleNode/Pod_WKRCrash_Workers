@@ -81,6 +81,7 @@
         [self.nextRatingWorker doLoadObjectForId:ratingId
                                        withBlock:block
                                   andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -98,6 +99,7 @@
         [self.nextRatingWorker doLoadObjectForReview:review
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -113,6 +115,7 @@
     {
         [self.nextRatingWorker doDeleteObject:rating
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -128,6 +131,7 @@
     {
         [self.nextRatingWorker doDeleteObjectForId:ratingId
                                          withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -143,6 +147,7 @@
     {
         [self.nextRatingWorker doDeleteObjectForItem:item
                                            withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -158,6 +163,7 @@
     {
         [self.nextRatingWorker doSaveObject:rating
                                   withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -177,6 +183,7 @@
         [self.nextRatingWorker doLoadItemForObject:rating
                                          withBlock:block
                                     andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -194,6 +201,7 @@
         [self.nextRatingWorker doLoadLocationForObject:rating
                                              withBlock:block
                                         andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -211,6 +219,7 @@
         [self.nextRatingWorker doLoadReviewForObject:rating
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -228,6 +237,7 @@
         [self.nextRatingWorker doLoadUserForObject:rating
                                          withBlock:block
                                     andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -249,6 +259,7 @@
                                      withParameters:parameters
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -268,6 +279,7 @@
                                          withParameters:parameters
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -287,6 +299,7 @@
                                        withParameters:parameters
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -306,6 +319,7 @@
                                      withParameters:parameters
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

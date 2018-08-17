@@ -81,6 +81,7 @@
         [self.nextCategoryWorker doLoadObjectForId:categoryId
                                          withBlock:block
                                     andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextCategoryWorker doSaveObject:category
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextCategoryWorker doSaveObjectOptions:category
                                            withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -132,6 +135,7 @@
                                      andValue:optionValue
                                   forCategory:daoCategory
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -147,6 +151,7 @@
     {
         [self.nextCategoryWorker doFollowObject:category
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -162,6 +167,7 @@
     {
         [self.nextCategoryWorker doUnfollowObject:category
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -181,6 +187,7 @@
                                    withAction:action
                                       andText:text
                                      andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -202,6 +209,7 @@
                                    withAction:action
                                       andText:text
                                      andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -219,6 +227,7 @@
         [self.nextCategoryWorker doDeleteFlag:flag
                                     forObject:category
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -238,6 +247,7 @@
                                      withAction:action
                                         andText:text
                                        andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -255,6 +265,7 @@
         [self.nextCategoryWorker doCheckFlagObject:category
                                         withAction:action
                                           andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -272,6 +283,7 @@
         [self.nextCategoryWorker doTagObject:category
                                      withTag:tag
                                     andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -289,6 +301,7 @@
         [self.nextCategoryWorker doUntagObject:category
                                        withTag:tag
                                       andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -310,6 +323,7 @@
                                        withParameters:parameters
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -327,6 +341,7 @@
         [self.nextCategoryWorker doLoadPhotosForObject:category
                                              withBlock:block
                                         andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -348,6 +363,7 @@
                                           withActions:actions
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -367,6 +383,7 @@
                                             withActions:actions
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -384,6 +401,7 @@
         [self.nextCategoryWorker doLoadTagsForObject:category
                                             andBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -409,6 +427,7 @@
                                 withParameters:parameters
                                       andBlock:block
                                 andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -428,6 +447,7 @@
                                        withParameters:parameters
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

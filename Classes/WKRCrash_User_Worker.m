@@ -81,7 +81,7 @@
 {
     if (self.nextUserWorker)
     {
-        [self.nextUserWorker doCheckForAccessTokenError:errorData];
+        return [self.nextUserWorker doCheckForAccessTokenError:errorData];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -95,6 +95,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doCurrentAccessTokenWithBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -108,6 +109,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doCurrentUserWithBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -121,6 +123,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doDeleteCurrentUserWithBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -134,6 +137,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker doLogOut];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -147,6 +151,7 @@
     if (self.nextUserWorker)
     {
         [self.nextUserWorker validateCurrentSessionInBackgroundWithBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -166,6 +171,7 @@
                                                   username:username
                                                   password:password
                                                  withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -185,6 +191,7 @@
                                withAction:action
                                   andText:text
                                  andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -206,6 +213,7 @@
                                withAction:action
                                   andText:text
                                  andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -223,6 +231,7 @@
         [self.nextUserWorker doDeleteFlag:flag
                                 forObject:user
                                 withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -242,6 +251,7 @@
                                  withAction:action
                                     andText:text
                                    andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -259,6 +269,7 @@
         [self.nextUserWorker doCheckFlagObject:user
                                     withAction:action
                                       andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -274,6 +285,7 @@
     {
         [self.nextUserWorker doFollowUser:user
                                 withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -289,6 +301,7 @@
     {
         [self.nextUserWorker doUnfollowUser:user
                                   withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -306,6 +319,7 @@
         [self.nextUserWorker doTagObject:user
                                  withTag:tag
                                 andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -323,6 +337,7 @@
         [self.nextUserWorker doUntagObject:user
                                    withTag:tag
                                   andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -338,6 +353,7 @@
     {
         [self.nextUserWorker doLoad:userId
                           withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -353,6 +369,7 @@
     {
         [self.nextUserWorker doVerify:user
                             withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -370,6 +387,7 @@
     {
         [self.nextUserWorker doLoadAvatarForUser:user
                                        withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -387,6 +405,7 @@
         [self.nextUserWorker doLoadLocationsForObject:user
                                             withBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -402,6 +421,7 @@
     {
         [self.nextUserWorker doResetPasswordForEmail:email
                                            withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -417,6 +437,7 @@
     {
         [self.nextUserWorker saveInBackground:user
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -432,6 +453,7 @@
     {
         [self.nextUserWorker saveOptionsInBackground:daoUser
                                            withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -447,6 +469,7 @@
     {
         [self.nextUserWorker signUpInBackground:user
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -466,6 +489,7 @@
                                   withText:search
                             withParameters:parameters
                                   andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -487,6 +511,7 @@
                                  andValue:optionValue
                                   forUser:daoUser
                                 withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -508,6 +533,7 @@
                                          withActions:actions
                                             andBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -527,6 +553,7 @@
                                       withActions:actions
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -546,6 +573,7 @@
                                         withActions:actions
                                            andBlock:block
                                      andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -563,6 +591,7 @@
         [self.nextUserWorker doLoadTagsForObject:user
                                        withBlock:block
                                   andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -582,6 +611,7 @@
                                    withParameters:parameters
                                          andBlock:block
                                    andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -599,6 +629,7 @@
         [self.nextUserWorker doLoadTagsForObject:user
                                        withBlock:block
                                   andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

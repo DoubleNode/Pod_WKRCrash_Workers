@@ -83,6 +83,7 @@
                                                      andId:transactionId
                                                  withBlock:block
                                             andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -98,6 +99,7 @@
     {
         [self.nextTransactionWorker doDeleteObject:transaction
                                          withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -113,6 +115,7 @@
     {
         [self.nextTransactionWorker doSaveObject:transaction
                                        withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

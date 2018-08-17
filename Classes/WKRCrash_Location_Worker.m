@@ -86,6 +86,7 @@
         [self.nextLocationWorker doLoadObjectForId:locationId
                                          withBlock:block
                                     andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -101,6 +102,7 @@
     {
         [self.nextLocationWorker doDeleteObject:location
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -118,6 +120,7 @@
         [self.nextLocationWorker doDeleteObject:location
                                    fromCategory:category
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -133,6 +136,7 @@
     {
         [self.nextLocationWorker doSaveObject:location
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -150,6 +154,7 @@
         [self.nextLocationWorker doSaveObject:location
                                    inCategory:category
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -165,6 +170,7 @@
     {
         [self.nextLocationWorker doSaveObjectOptions:location
                                            withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -186,6 +192,7 @@
                                      andValue:optionValue
                                   forLocation:daoLocation
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -205,6 +212,7 @@
                                    withAction:action
                                       andText:text
                                      andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -226,6 +234,7 @@
                                    withAction:action
                                       andText:text
                                      andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -243,6 +252,7 @@
         [self.nextLocationWorker doDeleteFlag:flag
                                     forObject:location
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -262,6 +272,7 @@
                                      withAction:action
                                         andText:text
                                        andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -279,6 +290,7 @@
         [self.nextLocationWorker doCheckFlagObject:location
                                         withAction:action
                                           andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -294,6 +306,7 @@
     {
         [self.nextLocationWorker doFollowObject:location
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -309,6 +322,7 @@
     {
         [self.nextLocationWorker doUnfollowObject:location
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -326,6 +340,7 @@
         [self.nextLocationWorker doTagObject:location
                                      withTag:tag
                                     andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -343,6 +358,7 @@
         [self.nextLocationWorker doUntagObject:location
                                        withTag:tag
                                       andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -362,6 +378,7 @@
         [self.nextLocationWorker doLoadItemsForObject:location
                                             withBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -379,6 +396,7 @@
         [self.nextLocationWorker doLoadPhotosForObject:location
                                              withBlock:block
                                         andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -400,6 +418,7 @@
                                           withActions:actions
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -419,6 +438,7 @@
                                             withActions:actions
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -436,6 +456,7 @@
         [self.nextLocationWorker doLoadTagsForObject:location
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -461,6 +482,7 @@
                                 withParameters:parameters
                                       andBlock:block
                                 andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -480,6 +502,7 @@
                                        withParameters:parameters
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -497,6 +520,7 @@
         [self.nextLocationWorker doLoadTagsForObject:location
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

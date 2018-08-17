@@ -81,6 +81,7 @@
         [self.nextConversationWorker doLoadObjectForId:conversationId
                                              withBlock:block
                                         andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextConversationWorker doDeleteObject:conversation
                                           withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextConversationWorker doSaveObject:conversation
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -130,6 +133,7 @@
         [self.nextConversationWorker doAddCategory:category
                                           toObject:conversation
                                          withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -147,6 +151,7 @@
         [self.nextConversationWorker doAddItem:item
                                       toObject:conversation
                                      withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -164,6 +169,7 @@
         [self.nextConversationWorker doAddLocation:location
                                           toObject:conversation
                                          withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -181,6 +187,7 @@
         [self.nextConversationWorker doAddUser:user
                                       toObject:conversation
                                      withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -198,6 +205,7 @@
         [self.nextConversationWorker doRemoveCategory:category
                                            fromObject:conversation
                                             withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -215,6 +223,7 @@
         [self.nextConversationWorker doRemoveItem:item
                                        fromObject:conversation
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -232,6 +241,7 @@
         [self.nextConversationWorker doRemoveLocation:location
                                            fromObject:conversation
                                             withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -249,6 +259,7 @@
         [self.nextConversationWorker doRemoveUser:user
                                        fromObject:conversation
                                         withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -268,6 +279,7 @@
         [self.nextConversationWorker doLoadCategoriesForObject:conversation
                                                      withBlock:block
                                                 andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -285,6 +297,7 @@
         [self.nextConversationWorker doLoadItemsForObject:conversation
                                                 withBlock:block
                                            andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -302,6 +315,7 @@
         [self.nextConversationWorker doLoadLocationsForObject:conversation
                                                     withBlock:block
                                                andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -319,6 +333,7 @@
         [self.nextConversationWorker doLoadMessagesForObject:conversation
                                                    withBlock:block
                                               andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -336,6 +351,7 @@
         [self.nextConversationWorker doLoadUsersForObject:conversation
                                                 withBlock:block
                                            andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -351,6 +367,7 @@
     {
         [self.nextConversationWorker doLoadObjectsWithBlock:block
                                              andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

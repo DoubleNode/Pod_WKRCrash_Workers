@@ -78,7 +78,7 @@
 {
     if (self.nextPasswordStrengthWorker)
     {
-        [self.nextPasswordStrengthWorker doCheckPasswordStrength:password];
+        return [self.nextPasswordStrengthWorker doCheckPasswordStrength:password];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

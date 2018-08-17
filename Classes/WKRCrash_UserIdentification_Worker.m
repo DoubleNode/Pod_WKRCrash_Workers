@@ -81,6 +81,7 @@
         [self.nextUserIdentificationWorker doUserIdentifier:identifier
                                                withUsername:username
                                                    andEmail:email];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

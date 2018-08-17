@@ -85,7 +85,7 @@
 {
     if (self.nextMediaLibraryWorker)
     {
-        [self.nextMediaLibraryWorker doCheckAuthorization];
+        return [self.nextMediaLibraryWorker doCheckAuthorization];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -99,6 +99,7 @@
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doRequestAuthorizationWithCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -118,6 +119,7 @@
         [self.nextMediaLibraryWorker doLoadAudio:asset
                                             size:size
                                  completionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -135,6 +137,7 @@
         [self.nextMediaLibraryWorker doLoadImage:asset
                                             size:size
                                  completionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -152,6 +155,7 @@
         [self.nextMediaLibraryWorker doLoadVideo:asset
                                             size:size
                                  completionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -167,6 +171,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     {
         [self.nextMediaLibraryWorker doSaveImage:image
                              withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -184,6 +189,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
         [self.nextMediaLibraryWorker doSaveImage:image
                                     toCollection:assetCollection
                              withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -199,6 +205,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     {
         [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -216,6 +223,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
         [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
                                            toCollection:assetCollection
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -230,6 +238,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     {
         [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -247,6 +256,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
         [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
                                            toCollection:assetCollection
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -262,6 +272,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     {
         [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -279,6 +290,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
         [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
                                            toCollection:assetCollection
                                     withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -294,6 +306,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadCollectionsWithCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -309,6 +322,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     {
         [self.nextMediaLibraryWorker doLoadAssetsOfMediaTypes:mediaTypes
                                           withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -326,6 +340,7 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
         [self.nextMediaLibraryWorker doLoadAssetsForCollection:assetCollection
                                                   ofMediaTypes:mediaTypes
                                            withCompletionBlock:completionBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

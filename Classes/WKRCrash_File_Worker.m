@@ -85,6 +85,7 @@
                                              andMetadata:metadata
                                                  andData:data
                                                withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

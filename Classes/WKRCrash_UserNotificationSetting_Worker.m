@@ -83,6 +83,7 @@
                                                         andUserId:userId
                                                         withBlock:block
                                                    andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -98,6 +99,7 @@
     {
         [self.nextUserNotificationSettingWorker doSaveObject:userNotificationSetting
                                                    withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -119,6 +121,7 @@
                                                       withParameters:parameters
                                                             andBlock:block
                                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

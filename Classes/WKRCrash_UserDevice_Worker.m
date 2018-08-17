@@ -83,6 +83,7 @@
                                            andUserId:userId
                                            withBlock:block
                                       andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -98,7 +99,8 @@
     {
         [self.nextUserDeviceWorker doDeleteObject:userDevice
                                         withBlock:block];
-    }
+        return;
+   }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
                                                         reason:@"Crash worker should not be actually used!"
@@ -115,6 +117,7 @@
         [self.nextUserDeviceWorker doDeleteObjectForId:userDeviceId
                                              andUserId:userId
                                              withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -130,7 +133,8 @@
     {
         [self.nextUserDeviceWorker doSaveObject:userDevice
                                       withBlock:block];
-    }
+        return;
+   }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
                                                         reason:@"Crash worker should not be actually used!"
@@ -151,6 +155,7 @@
                                          withParameters:parameters
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

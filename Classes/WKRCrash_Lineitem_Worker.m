@@ -83,6 +83,7 @@
                                                   andId:lineitemId
                                               withBlock:block
                                          andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -98,6 +99,7 @@
     {
         [self.nextLineitemWorker doDeleteObject:lineitem
                                       withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -113,6 +115,7 @@
     {
         [self.nextLineitemWorker doSaveObject:lineitem
                                     withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

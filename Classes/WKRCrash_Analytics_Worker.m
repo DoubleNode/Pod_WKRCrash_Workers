@@ -79,6 +79,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doIdentify:userId];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -92,6 +93,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doIdentify:userId traits:traits];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -105,6 +107,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doIdentify:userId traits:traits options:options];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -120,6 +123,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doTrack:event];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -133,6 +137,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doTrack:event properties:properties];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -146,6 +151,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doTrack:event properties:properties options:options];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -161,6 +167,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doScreen:screenTitle];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -174,6 +181,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doScreen:screenTitle properties:properties];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -187,6 +195,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doScreen:screenTitle properties:properties options:options];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -202,6 +211,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doGroup:groupId];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -215,6 +225,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doGroup:groupId traits:traits];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -228,6 +239,7 @@
     if (self.nextAnalyticsWorker)
     {
         [self.nextAnalyticsWorker doGroup:groupId traits:traits options:options];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

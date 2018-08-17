@@ -81,6 +81,7 @@
         [self.nextPaymentAccountWorker doLoadObjectForId:paymentAccountId
                                                withBlock:block
                                           andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -96,6 +97,7 @@
     {
         [self.nextPaymentAccountWorker doDeleteObject:paymentAccount
                                             withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -111,6 +113,7 @@
     {
         [self.nextPaymentAccountWorker doSaveObject:paymentAccount
                                           withBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -130,6 +133,7 @@
                                          withDeposit1:deposit1
                                           andDeposit2:deposit2
                                              andBlock:block];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -149,6 +153,7 @@
         [self.nextPaymentAccountWorker doLoadContactForObject:paymentAccount
                                                     withBlock:block
                                                andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -168,6 +173,7 @@
                                              withParameters:parameters
                                                    andBlock:block
                                              andUpdateBlock:updateBlock];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]

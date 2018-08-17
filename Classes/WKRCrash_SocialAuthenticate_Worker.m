@@ -77,6 +77,7 @@
     if (self.nextSocialAuthenticateWorker)
     {
         [self.nextSocialAuthenticateWorker doAuthenticateWithCompletion:completion];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
@@ -94,6 +95,7 @@
         [self.nextSocialAuthenticateWorker doRetrieveUser:userId
                                               withSession:session
                                            withCompletion:completion];
+        return;
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
