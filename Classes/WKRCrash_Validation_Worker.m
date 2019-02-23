@@ -34,6 +34,9 @@
 @synthesize minimumPercentageValue;
 @synthesize maximumPercentageValue;
 
+@synthesize minimumPhoneLength;
+@synthesize maximumPhoneLength;
+
 @synthesize minimumUnsignedNumberValue;
 @synthesize maximumUnsignedNumberValue;
 
@@ -189,6 +192,21 @@
     {
         return [self.nextValidationWorker doValidatePercentage:percentage
                                                          error:error];
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (BOOL)doValidatePhone:(nonnull NSString*)phone
+                  error:(NSError*_Nullable*_Nullable)error
+{
+    if (self.nextValidationWorker)
+    {
+        return [self.nextValidationWorker doValidateSearch:phone
+                                                     error:error];
     }
     
     NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
