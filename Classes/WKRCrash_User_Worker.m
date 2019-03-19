@@ -138,11 +138,13 @@
     @throw exception;
 }
 
-- (void)doLogOut
+- (void)doLogoutWithProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 {
     if (self.nextUserWorker)
     {
-        [self.nextUserWorker doLogOut];
+        [self.nextUserWorker doLogoutWithProgress:progressBlock
+                                         andBlock:block];
         return;
     }
     
