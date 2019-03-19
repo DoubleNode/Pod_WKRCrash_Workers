@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)wishlistId
-                withBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSErrorContinue)block
            andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSError)updateBlock
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doLoadObjectForId:wishlistId
-                                         withBlock:block
+                                         withProgress:progressBlock
+                 andBlock:block
                                     andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doDeleteObject:(nonnull DAOWishlist*)wishlist
-             withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doDeleteObject:wishlist
-                                      withBlock:block];
+                                      withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doDeleteObjectForId:(nonnull NSString*)wishlistId
-                  withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doDeleteObjectForId:wishlistId
-                                           withBlock:block];
+                                           withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -123,12 +129,14 @@
 }
 
 - (void)doDeleteObjectForItem:(nonnull DAOItem*)item
-                    withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doDeleteObjectForItem:item
-                                             withBlock:block];
+                                             withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -141,13 +149,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOWishlist*)wishlist
-                  withBlock:(nullable PTCLWishlistBlockVoidDAOItemNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOItemNSError)updateBlock
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doLoadItemForObject:wishlist
-                                           withBlock:block
+                                           withProgress:progressBlock
+                 andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }
@@ -159,13 +169,15 @@
 }
 
 - (void)doLoadUserForObject:(nonnull DAOWishlist*)wishlist
-                  withBlock:(nullable PTCLWishlistBlockVoidDAOUserNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOUserNSError)updateBlock
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doLoadUserForObject:wishlist
-                                           withBlock:block
+                                           withProgress:progressBlock
+                 andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }
@@ -180,14 +192,16 @@
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextWishlistWorker)
     {
         [self.nextWishlistWorker doLoadObjectsForUser:user
                                        withParameters:parameters
-                                             andBlock:block
+                                             andProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }

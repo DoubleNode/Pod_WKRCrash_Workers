@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)categoryId
-                withBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSErrorContinue)block
            andUpdateBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadObjectForId:categoryId
-                                         withBlock:block
+                                         withProgress:progressBlock
+                 andBlock:block
                                     andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doSaveObject:category
-                                    withBlock:block];
+                                    withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doSaveObjectOptions:(nonnull DAOCategory*)category
-                  withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doSaveObjectOptions:category
-                                           withBlock:block];
+                                           withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -126,7 +132,8 @@
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
          forCategory:(nonnull DAOCategory*)daoCategory
-           withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block
 {
     if (self.nextCategoryWorker)
     {
@@ -134,7 +141,8 @@
                                        andKey:optionKey
                                      andValue:optionValue
                                   forCategory:daoCategory
-                                    withBlock:block];
+                                    withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -145,12 +153,14 @@
 }
 
 - (void)doFollowObject:(nonnull DAOCategory*)category
-             withBlock:(nullable PTCLCategoryBlockVoidNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doFollowObject:category
-                                      withBlock:block];
+                                      withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -161,12 +171,14 @@
 }
 
 - (void)doUnfollowObject:(nonnull DAOCategory*)category
-               withBlock:(nullable PTCLCategoryBlockVoidNSError)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doUnfollowObject:category
-                                        withBlock:block];
+                                        withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -179,14 +191,16 @@
 - (void)doFlagObject:(nonnull DAOCategory*)category
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
-            andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+            andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doFlagObject:category
                                    withAction:action
                                       andText:text
-                                     andBlock:block];
+                                     andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -200,7 +214,8 @@
              forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
-            andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+            andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
@@ -208,7 +223,8 @@
                                       forUser:flaggingUser
                                    withAction:action
                                       andText:text
-                                     andBlock:block];
+                                     andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -220,13 +236,15 @@
 
 - (void)doDeleteFlag:(nonnull DAOFlag*)flag
            forObject:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLCategoryBlockVoidNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doDeleteFlag:flag
                                     forObject:category
-                                    withBlock:block];
+                                    withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -239,14 +257,16 @@
 - (void)doUnflagObject:(nonnull DAOCategory*)category
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
-              andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+              andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doUnflagObject:category
                                      withAction:action
                                         andText:text
-                                       andBlock:block];
+                                       andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -258,13 +278,15 @@
 
 - (void)doCheckFlagObject:(nonnull DAOCategory*)category
                withAction:(nonnull NSString*)action
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLCategoryBlockVoidNSUIntegerNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doCheckFlagObject:category
                                         withAction:action
-                                          andBlock:block];
+                                          andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -276,13 +298,15 @@
 
 - (void)doTagObject:(nonnull DAOCategory*)category
             withTag:(nonnull NSString*)tag
-           andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+           andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doTagObject:category
                                      withTag:tag
-                                    andBlock:block];
+                                    andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -294,13 +318,15 @@
 
 - (void)doUntagObject:(nonnull DAOCategory*)category
               withTag:(nonnull NSString*)tag
-             andBlock:(nullable PTCLCategoryBlockVoidNSError)block
+             andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSError)block
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doUntagObject:category
                                        withTag:tag
-                                      andBlock:block];
+                                      andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -314,14 +340,16 @@
 
 - (void)doLoadItemsForObject:(nonnull DAOCategory*)category
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadItemsForObject:category
                                        withParameters:parameters
-                                             andBlock:block
+                                             andProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }
@@ -333,13 +361,15 @@
 }
 
 - (void)doLoadPhotosForObject:(nonnull DAOCategory*)category
-                    withBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
                andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadPhotosForObject:category
-                                             withBlock:block
+                                             withProgress:progressBlock
+                 andBlock:block
                                         andUpdateBlock:updateBlock];
         return;
     }
@@ -354,14 +384,16 @@
 
 - (void)doLoadFlagsForObject:(nonnull DAOCategory*)category
                  withActions:(nonnull NSArray<NSString*>*)actions
-                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadFlagsForObject:category
                                           withActions:actions
-                                             andBlock:block
+                                             andProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }
@@ -374,14 +406,16 @@
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOCategory*)category
                    withActions:(nonnull NSArray<NSString*>*)actions
-                      andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                      andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadMyFlagsForObject:category
                                             withActions:actions
-                                               andBlock:block
+                                               andProgress:progressBlock
+                 andBlock:block
                                          andUpdateBlock:updateBlock];
         return;
     }
@@ -393,13 +427,15 @@
 }
 
 - (void)doLoadTagsForObject:(nonnull DAOCategory*)category
-                   andBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadTagsForObject:category
-                                            andBlock:block
+                                            andProgress:progressBlock
+                 andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }
@@ -415,7 +451,8 @@
         withLongitude:(nullable NSNumber*)longitude
          withLatitude:(nullable NSNumber*)latitude
        withParameters:(nullable NSDictionary*)parameters
-             andBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+             andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
        andUpdateBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
@@ -425,7 +462,8 @@
                                  withLongitude:longitude
                                   withLatitude:latitude
                                 withParameters:parameters
-                                      andBlock:block
+                                      andProgress:progressBlock
+                 andBlock:block
                                 andUpdateBlock:updateBlock];
         return;
     }
@@ -438,14 +476,16 @@
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextCategoryWorker)
     {
         [self.nextCategoryWorker doLoadObjectsWithTag:tag
                                        withParameters:parameters
-                                             andBlock:block
+                                             andProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }

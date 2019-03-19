@@ -74,14 +74,16 @@
 
 - (void)doLoadObjectForId:(nonnull NSString*)userNotificationSettingId
                 andUserId:(nonnull NSString*)userId
-                withBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSErrorContinue)block
            andUpdateBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSError)updateBlock
 {
     if (self.nextUserNotificationSettingWorker)
     {
         [self.nextUserNotificationSettingWorker doLoadObjectForId:userNotificationSettingId
                                                         andUserId:userId
-                                                        withBlock:block
+                                                        withProgress:progressBlock
+                 andBlock:block
                                                    andUpdateBlock:updateBlock];
         return;
     }
@@ -93,12 +95,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOUserNotificationSetting*)userNotificationSetting
-           withBlock:(nullable PTCLUserNotificationSettingBlockVoidBOOLNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLUserNotificationSettingBlockVoidBOOLNSError)block
 {
     if (self.nextUserNotificationSettingWorker)
     {
         [self.nextUserNotificationSettingWorker doSaveObject:userNotificationSetting
-                                                   withBlock:block];
+                                                   withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -112,14 +116,16 @@
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextUserNotificationSettingWorker)
     {
         [self.nextUserNotificationSettingWorker doLoadObjectsForUser:user
                                                       withParameters:parameters
-                                                            andBlock:block
+                                                            andProgress:progressBlock
+                 andBlock:block
                                                       andUpdateBlock:updateBlock];
         return;
     }

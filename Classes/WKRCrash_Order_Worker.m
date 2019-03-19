@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)orderId
-                withBlock:(nullable PTCLOrderBlockVoidDAOOrderNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidDAOOrderNSErrorContinue)block
            andUpdateBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)updateBlock
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doLoadObjectForId:orderId
-                                      withBlock:block
+                                      withProgress:progressBlock
+                 andBlock:block
                                  andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doDeleteObject:(nonnull DAOOrder*)order
-             withBlock:(nullable PTCLOrderBlockVoidBOOLNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidBOOLNSError)block
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doDeleteObject:order
-                                   withBlock:block];
+                                   withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOOrder*)order
-           withBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)block
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doSaveObject:order
-                                 withBlock:block];
+                                 withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -125,13 +131,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadLineitemsForObject:(nonnull DAOOrder*)order
-                       withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSErrorContinue)block
+                       withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doLoadLineitemsForObject:order
-                                             withBlock:block
+                                             withProgress:progressBlock
+                 andBlock:block
                                         andUpdateBlock:updateBlock];
         return;
     }
@@ -143,13 +151,15 @@
 }
 
 - (void)doLoadTransactionsForObject:(nonnull DAOOrder*)order
-                          withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
+                          withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
                      andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doLoadTransactionsForObject:order
-                                                withBlock:block
+                                                withProgress:progressBlock
+                 andBlock:block
                                            andUpdateBlock:updateBlock];
         return;
     }
@@ -164,14 +174,16 @@
 
 - (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
                   withParameters:(nullable NSDictionary*)parameters
-                        andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
+                        andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doLoadObjectsForLocation:location
                                         withParameters:parameters
-                                              andBlock:block
+                                              andProgress:progressBlock
+                 andBlock:block
                                         andUpdateBlock:updateBlock];
         return;
     }
@@ -184,14 +196,16 @@
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextOrderWorker)
     {
         [self.nextOrderWorker doLoadObjectsForUser:user
                                     withParameters:parameters
-                                          andBlock:block
+                                          andProgress:progressBlock
+                 andBlock:block
                                     andUpdateBlock:updateBlock];
         return;
     }

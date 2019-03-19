@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)photoId
-                withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSErrorContinue)block
            andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadObjectForId:photoId
-                                      withBlock:block
+                                      withProgress:progressBlock
+                 andBlock:block
                                  andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doDeleteObject:(nonnull DAOPhoto*)photo
-             withBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doDeleteObject:photo
-                                   withBlock:block];
+                                   withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doDeleteObjectForId:(nonnull NSString*)photoId
-                  withBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doDeleteObjectForId:photoId
-                                        withBlock:block];
+                                        withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -123,12 +129,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOPhoto*)photo
-           withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doSaveObject:photo
-                                 withBlock:block];
+                                 withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -139,12 +147,14 @@
 }
 
 - (void)doFavoriteObject:(nonnull DAOPhoto*)photo
-               withBlock:(nullable PTCLPhotoBlockVoidNSError)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doFavoriteObject:photo
-                                     withBlock:block];
+                                     withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -155,12 +165,14 @@
 }
 
 - (void)doUnfavoriteObject:(nonnull DAOPhoto*)photo
-                 withBlock:(nullable PTCLPhotoBlockVoidNSError)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doUnfavoriteObject:photo
-                                       withBlock:block];
+                                       withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -173,14 +185,16 @@
 - (void)doFlagObject:(nonnull DAOPhoto*)photo
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
-            andBlock:(nullable PTCLPhotoBlockVoidNSError)block
+            andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doFlagObject:photo
                                 withAction:action
                                    andText:text
-                                  andBlock:block];
+                                  andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -193,14 +207,16 @@
 - (void)doUnflagObject:(nonnull DAOPhoto*)photo
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
-              andBlock:(nullable PTCLPhotoBlockVoidNSError)block
+              andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doUnflagObject:photo
                                   withAction:action
                                      andText:text
-                                    andBlock:block];
+                                    andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -212,13 +228,15 @@
 
 - (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
                withAction:(nonnull NSString*)action
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLPhotoBlockVoidNSUIntegerNSError)block
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doCheckFlagObject:photo
                                      withAction:action
-                                       andBlock:block];
+                                       andProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -231,13 +249,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOPhoto*)photo
-                  withBlock:(nullable PTCLPhotoBlockVoidDAOItemNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOItemNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadItemForObject:photo
-                                        withBlock:block
+                                        withProgress:progressBlock
+                 andBlock:block
                                    andUpdateBlock:updateBlock];
         return;
     }
@@ -249,13 +269,15 @@
 }
 
 - (void)doLoadLocationForObject:(nonnull DAOPhoto*)photo
-                      withBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSErrorContinue)block
+                      withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadLocationForObject:photo
-                                            withBlock:block
+                                            withProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }
@@ -267,13 +289,15 @@
 }
 
 - (void)doLoadReviewForObject:(nonnull DAOPhoto*)photo
-                    withBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSErrorContinue)block
                andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadReviewForObject:photo
-                                          withBlock:block
+                                          withProgress:progressBlock
+                 andBlock:block
                                      andUpdateBlock:updateBlock];
         return;
     }
@@ -285,13 +309,15 @@
 }
 
 - (void)doLoadUserForObject:(nonnull DAOPhoto*)photo
-                  withBlock:(nullable PTCLPhotoBlockVoidDAOUserNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOUserNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadUserForObject:photo
-                                        withBlock:block
+                                        withProgress:progressBlock
+                 andBlock:block
                                    andUpdateBlock:updateBlock];
         return;
     }
@@ -306,14 +332,16 @@
 
 - (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
                  withActions:(nonnull NSArray<NSString*>*)actions
-                    andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadFlagsForObject:photo
                                        withActions:actions
-                                          andBlock:block
+                                          andProgress:progressBlock
+                 andBlock:block
                                     andUpdateBlock:updateBlock];
         return;
     }
@@ -326,14 +354,16 @@
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOPhoto*)photo
                    withActions:(nonnull NSArray<NSString*>*)actions
-                      andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                      andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextPhotoWorker)
     {
         [self.nextPhotoWorker doLoadMyFlagsForObject:photo
                                          withActions:actions
-                                            andBlock:block
+                                            andProgress:progressBlock
+                 andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }

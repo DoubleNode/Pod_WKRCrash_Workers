@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)messageId
-                withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
            andUpdateBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)updateBlock
 {
     if (self.nextMessageWorker)
     {
         [self.nextMessageWorker doLoadObjectForId:messageId
-                                        withBlock:block
+                                        withProgress:progressBlock
+                 andBlock:block
                                    andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doDeleteObject:(nonnull DAOMessage*)message
-             withBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block
 {
     if (self.nextMessageWorker)
     {
         [self.nextMessageWorker doDeleteObject:message
-                                     withBlock:block];
+                                     withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOMessage*)message
-           withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block
 {
     if (self.nextMessageWorker)
     {
         [self.nextMessageWorker doSaveObject:message
-                                   withBlock:block];
+                                   withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -125,13 +131,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadPhotosForObject:(nonnull DAOMessage*)message
-                    withBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
                andUpdateBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextMessageWorker)
     {
         [self.nextMessageWorker doLoadPhotosForObject:message
-                                            withBlock:block
+                                            withProgress:progressBlock
+                 andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }

@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)contactId
-                withBlock:(nullable PTCLContactBlockVoidDAOContactNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLContactBlockVoidDAOContactNSErrorContinue)block
            andUpdateBlock:(nullable PTCLContactBlockVoidDAOContactNSError)updateBlock
 {
     if (self.nextContactWorker)
     {
         [self.nextContactWorker doLoadObjectForId:contactId
-                                        withBlock:block
+                                        withProgress:progressBlock
+                 andBlock:block
                                    andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doDeleteObject:(nonnull DAOContact*)contact
-             withBlock:(nullable PTCLContactBlockVoidBOOLNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block
 {
     if (self.nextContactWorker)
     {
         [self.nextContactWorker doDeleteObject:contact
-                                     withBlock:block];
+                                     withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doSaveObject:(nonnull DAOContact*)contact
-           withBlock:(nullable PTCLContactBlockVoidDAOContactNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLContactBlockVoidDAOContactNSError)block
 {
     if (self.nextContactWorker)
     {
         [self.nextContactWorker doSaveObject:contact
-                                   withBlock:block];
+                                   withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -126,14 +132,16 @@
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorContinue)block
+                    andProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextContactWorker)
     {
         [self.nextContactWorker doLoadObjectsForUser:user
                                       withParameters:parameters
-                                            andBlock:block
+                                            andProgress:progressBlock
+                 andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }

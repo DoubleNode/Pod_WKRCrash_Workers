@@ -94,11 +94,13 @@
     @throw exception;
 }
 
-- (void)doRequestAuthorizationWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSError)completionBlock
+- (void)doRequestAuthorizationWithProgress:(nullable PTCLProgressBlock)progressBlock
+                                  andBlock:(nullable PTCLMediaLibraryBlockVoidNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
-        [self.nextMediaLibraryWorker doRequestAuthorizationWithCompletionBlock:completionBlock];
+        [self.nextMediaLibraryWorker doRequestAuthorizationWithProgress:progressBlock
+                                                               andBlock:block];
         return;
     }
     
@@ -111,14 +113,16 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadAudio:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock
+               withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadAudio:asset
-                                            size:size
-                                 completionBlock:completionBlock];
+                                            withSize:size
+                                     andProgress:progressBlock
+                                        andBlock:block];
         return;
     }
     
@@ -129,14 +133,16 @@
 }
 
 - (void)doLoadImage:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock
+               withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadImage:asset
-                                            size:size
-                                 completionBlock:completionBlock];
+                                            withSize:size
+                                     andProgress:progressBlock
+                                        andBlock:block];
         return;
     }
     
@@ -147,14 +153,16 @@
 }
 
 - (void)doLoadVideo:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock
+               withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadVideo:asset
-                                            size:size
-                                 completionBlock:completionBlock];
+                                            withSize:size
+                                     andProgress:progressBlock
+                                        andBlock:block];
         return;
     }
     
@@ -165,12 +173,14 @@
 }
 
 - (void)doSaveImage:(UIImage* _Nullable)image
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+       withProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveImage:image
-                             withCompletionBlock:completionBlock];
+                                    withProgress:progressBlock
+                                        andBlock:block];
         return;
     }
     
@@ -182,13 +192,15 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 - (void)doSaveImage:(UIImage* _Nullable)image
        toCollection:(nonnull id)assetCollection
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+       withProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveImage:image
                                     toCollection:assetCollection
-                             withCompletionBlock:completionBlock];
+                                    withProgress:progressBlock
+                                        andBlock:block];
         return;
     }
     
@@ -199,12 +211,14 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 }
 
 - (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -216,13 +230,15 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 - (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveAudioFromUrl:videoUrl
                                            toCollection:assetCollection
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -232,12 +248,14 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
     @throw exception;}
 
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -249,13 +267,15 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveImageFromUrl:imageUrl
                                            toCollection:assetCollection
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -266,12 +286,14 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 }
 
 - (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -283,13 +305,15 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 - (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doSaveVideoFromUrl:videoUrl
                                            toCollection:assetCollection
-                                    withCompletionBlock:completionBlock];
+                                           withProgress:progressBlock
+                                               andBlock:block];
         return;
     }
     
@@ -301,11 +325,13 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 #pragma mark - Business Logic / Collection Items CRUD
 
-- (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+- (void)doLoadCollectionsWithProgress:(nullable PTCLProgressBlock)progressBlock
+                             andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
-        [self.nextMediaLibraryWorker doLoadCollectionsWithCompletionBlock:completionBlock];
+        [self.nextMediaLibraryWorker doLoadCollectionsWithProgress:progressBlock
+                                                          andBlock:block];
         return;
     }
     
@@ -316,12 +342,14 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 }
 
 - (void)doLoadAssetsOfMediaTypes:(nullable NSArray*)mediaTypes
-             withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                        andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadAssetsOfMediaTypes:mediaTypes
-                                          withCompletionBlock:completionBlock];
+                                                 withProgress:progressBlock
+                                                     andBlock:block];
         return;
     }
     
@@ -333,13 +361,15 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
 
 - (void)doLoadAssetsForCollection:(nonnull id)assetCollection
                      ofMediaTypes:(nullable NSArray*)mediaTypes
-              withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)block
 {
     if (self.nextMediaLibraryWorker)
     {
         [self.nextMediaLibraryWorker doLoadAssetsForCollection:assetCollection
                                                   ofMediaTypes:mediaTypes
-                                           withCompletionBlock:completionBlock];
+                                                  withProgress:progressBlock
+                                                      andBlock:block];
         return;
     }
     

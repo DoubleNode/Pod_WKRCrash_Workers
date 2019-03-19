@@ -73,13 +73,15 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)activityId
-                withBlock:(nullable PTCLActivityBlockVoidDAOActivityNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLActivityBlockVoidDAOActivityNSErrorContinue)block
            andUpdateBlock:(nullable PTCLActivityBlockVoidDAOActivityNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadObjectForId:activityId
-                                         withBlock:block
+                                      withProgress:progressBlock
+                                          andBlock:block
                                     andUpdateBlock:updateBlock];
         return;
     }
@@ -91,12 +93,14 @@
 }
 
 - (void)doFavoriteObject:(nonnull DAOActivity*)activity
-               withBlock:(nullable PTCLActivityBlockVoidNSError)block
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLActivityBlockVoidNSError)block
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doFavoriteObject:activity
-                                        withBlock:block];
+                                     withProgress:progressBlock
+                                         andBlock:block];
         return;
     }
     
@@ -107,12 +111,14 @@
 }
 
 - (void)doUnfavoriteObject:(nonnull DAOActivity*)activity
-                 withBlock:(nullable PTCLActivityBlockVoidNSError)block
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLActivityBlockVoidNSError)block
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doUnfavoriteObject:activity
-                                          withBlock:block];
+                                       withProgress:progressBlock
+                                           andBlock:block];
         return;
     }
     
@@ -125,6 +131,7 @@
 - (void)doFlagObject:(nonnull DAOActivity*)activity
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLActivityBlockVoidNSError)block
 {
     if (self.nextActivityWorker)
@@ -132,6 +139,7 @@
         [self.nextActivityWorker doFlagObject:activity
                                    withAction:action
                                       andText:text
+                                  andProgress:progressBlock
                                      andBlock:block];
         return;
     }
@@ -145,6 +153,7 @@
 - (void)doUnflagObject:(nonnull DAOActivity*)activity
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLActivityBlockVoidNSError)block
 {
     if (self.nextActivityWorker)
@@ -152,6 +161,7 @@
         [self.nextActivityWorker doUnflagObject:activity
                                      withAction:action
                                         andText:text
+                                    andProgress:progressBlock
                                        andBlock:block];
         return;
     }
@@ -164,12 +174,14 @@
 
 - (void)doCheckFlagObject:(nonnull DAOActivity*)activity
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLActivityBlockVoidNSUIntegerNSError)block
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doCheckFlagObject:activity
                                         withAction:action
+                                       andProgress:progressBlock
                                           andBlock:block];
         return;
     }
@@ -183,13 +195,15 @@
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nullable DAOActivity*)activity
-                  withBlock:(nullable PTCLActivityBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLActivityBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLActivityBlockVoidDAOItemNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadItemForObject:activity
-                                           withBlock:block
+                                        withProgress:progressBlock
+                                            andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }
@@ -201,13 +215,15 @@
 }
 
 - (void)doLoadLocationForObject:(nullable DAOActivity*)activity
-                      withBlock:(nullable PTCLActivityBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLActivityBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLActivityBlockVoidDAOLocationNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadLocationForObject:activity
-                                               withBlock:block
+                                            withProgress:progressBlock
+                                                andBlock:block
                                           andUpdateBlock:updateBlock];
         return;
     }
@@ -219,13 +235,15 @@
 }
 
 - (void)doLoadPhotoForObject:(nullable DAOActivity*)activity
-                   withBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadPhotoForObject:activity
-                                            withBlock:block
+                                         withProgress:progressBlock
+                                             andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
     }
@@ -237,13 +255,15 @@
 }
 
 - (void)doLoadUserForObject:(nullable DAOActivity*)activity
-                  withBlock:(nullable PTCLActivityBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLActivityBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLActivityBlockVoidDAOUserNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadUserForObject:activity
-                                           withBlock:block
+                                        withProgress:progressBlock
+                                            andBlock:block
                                       andUpdateBlock:updateBlock];
         return;
     }
@@ -255,13 +275,15 @@
 }
 
 - (void)doLoadUserAvatarForObject:(nullable DAOActivity*)activity
-                        withBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
                    andUpdateBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadUserAvatarForObject:activity
-                                                 withBlock:block
+                                              withProgress:progressBlock
+                                                  andBlock:block
                                             andUpdateBlock:updateBlock];
         return;
     }
@@ -276,6 +298,7 @@
 
 - (void)doLoadFlagsForObject:(nullable DAOActivity*)activity
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
@@ -283,6 +306,7 @@
     {
         [self.nextActivityWorker doLoadFlagsForObject:activity
                                           withActions:actions
+                                          andProgress:progressBlock
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
         return;
@@ -296,6 +320,7 @@
 
 - (void)doLoadMyFlagsForObject:(nullable DAOActivity*)activity
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock
 {
@@ -303,6 +328,7 @@
     {
         [self.nextActivityWorker doLoadMyFlagsForObject:activity
                                             withActions:actions
+                                            andProgress:progressBlock
                                                andBlock:block
                                          andUpdateBlock:updateBlock];
         return;
@@ -315,12 +341,14 @@
 }
 
 - (void)doLoadObjectsWithParameters:(nullable NSDictionary*)parameters
+                        andProgress:(nullable PTCLProgressBlock)progressBlock
                            andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                      andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
     if (self.nextActivityWorker)
     {
         [self.nextActivityWorker doLoadObjectsWithParameters:parameters
+                                                 andProgress:progressBlock
                                                     andBlock:block
                                               andUpdateBlock:updateBlock];
         return;
@@ -334,6 +362,7 @@
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock
 {
@@ -341,6 +370,7 @@
     {
         [self.nextActivityWorker doLoadObjectsForUser:user
                                        withParameters:parameters
+                                          andProgress:progressBlock
                                              andBlock:block
                                        andUpdateBlock:updateBlock];
         return;

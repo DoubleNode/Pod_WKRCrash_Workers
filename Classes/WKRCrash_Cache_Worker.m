@@ -73,12 +73,14 @@
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)cacheId
-                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidIDNSError)block
 {
     if (self.nextCacheWorker)
     {
         [self.nextCacheWorker doLoadObjectForId:cacheId
-                                      withBlock:block];
+                                      withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -89,12 +91,14 @@
 }
 
 - (void)doLoadImageForUrl:(nonnull NSURL*)url
-                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidIDNSError)block
 {
     if (self.nextCacheWorker)
     {
         [self.nextCacheWorker doLoadImageForUrl:url
-                                      withBlock:block];
+                                      withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -105,12 +109,14 @@
 }
 
 - (void)doDeleteObjectForId:(nonnull NSString*)cacheId
-                  withBlock:(nullable PTCLCacheBlockVoidNSError)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidNSError)block
 {
     if (self.nextCacheWorker)
     {
         [self.nextCacheWorker doDeleteObjectForId:cacheId
-                                        withBlock:block];
+                                        withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
@@ -122,13 +128,15 @@
 
 - (void)doSaveObject:(nonnull id)object
                forId:(nonnull NSString*)cacheId
-           withBlock:(nullable PTCLCacheBlockVoidNSError)block
+           withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidNSError)block
 {
     if (self.nextCacheWorker)
     {
         [self.nextCacheWorker doSaveObject:object
                                      forId:cacheId
-                                 withBlock:block];
+                                 withProgress:progressBlock
+                 andBlock:block];
         return;
     }
     
