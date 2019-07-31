@@ -128,6 +128,48 @@
     @throw exception;
 }
 
+- (void)doSendVerificationType:(nonnull NSString*)type
+                     forObject:(nonnull DAOContact*)contact
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                      andBlock:(nullable PTCLContactBlockVoidNSDictionaryNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doSendVerificationType:type
+                                             forObject:contact
+                                          withProgress:progressBlock
+                                              andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doVerifyType:(nonnull NSString*)type
+           forObject:(nonnull DAOContact*)contact
+      withParameters:(nullable NSDictionary*)parameters
+         andProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLContactBlockVoidNSDictionaryNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doVerifyType:type
+                                   forObject:contact
+                              withParameters:parameters
+                                 andProgress:progressBlock
+                                    andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
