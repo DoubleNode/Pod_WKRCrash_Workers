@@ -453,6 +453,7 @@
 				"${BUILT_PRODUCTS_DIR}/DNCProtocols/DNCProtocols.framework",
 				"${BUILT_PRODUCTS_DIR}/DNCore/DNCore.framework",
 				"${BUILT_PRODUCTS_DIR}/NSLogger/NSLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/PodAsset/PodAsset.framework",
 				"${BUILT_PRODUCTS_DIR}/SDVersion/SDVersion.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -462,6 +463,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DNCProtocols.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DNCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PodAsset.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDVersion.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

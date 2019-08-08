@@ -75,6 +75,84 @@
     [super configure];
 }
 
+#pragma mark - Business Logic / Single Item Security CRUD
+
+- (void)doLoadSecurityForObject:(nonnull DAOLocation*)location
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLLocationBlockVoidNSStringNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doLoadSecurityForObject:location
+                                            withProgress:progressBlock
+                                                andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteSecurityForObject:(nonnull DAOLocation*)location
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doDeleteSecurityForObject:location
+                                              withProgress:progressBlock
+                                                  andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveSecurity:(nonnull NSString*)security
+             forObject:(nonnull DAOLocation*)location
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doSaveSecurity:security
+                                      forObject:location
+                                   withProgress:progressBlock
+                                       andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doVerifySecurity:(nonnull NSString*)security
+               forObject:(nonnull DAOLocation*)location
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block
+{
+    if (self.nextLocationWorker)
+    {
+        [self.nextLocationWorker doVerifySecurity:security
+                                        forObject:location
+                                     withProgress:progressBlock
+                                         andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)locationId

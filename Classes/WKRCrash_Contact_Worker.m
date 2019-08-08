@@ -70,6 +70,84 @@
     // Options not used in this Worker
 }
 
+#pragma mark - Business Logic / Single Item Security CRUD
+
+- (void)doLoadSecurityForObject:(nonnull DAOContact*)contact
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLContactBlockVoidNSStringNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doLoadSecurityForObject:contact
+                                           withProgress:progressBlock
+                                               andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doDeleteSecurityForObject:(nonnull DAOContact*)contact
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doDeleteSecurityForObject:contact
+                                             withProgress:progressBlock
+                                                 andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doSaveSecurity:(nonnull NSString*)security
+             forObject:(nonnull DAOContact*)contact
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doSaveSecurity:security
+                                     forObject:contact
+                                  withProgress:progressBlock
+                                      andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
+- (void)doVerifySecurity:(nonnull NSString*)security
+               forObject:(nonnull DAOContact*)contact
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block
+{
+    if (self.nextContactWorker)
+    {
+        [self.nextContactWorker doVerifySecurity:security
+                                       forObject:contact
+                                    withProgress:progressBlock
+                                        andBlock:block];
+        return;
+    }
+    
+    NSException*    exception = [NSException exceptionWithName:[NSString stringWithFormat:@"%@ Exception", NSStringFromClass(self.class)]
+                                                        reason:@"Crash worker should not be actually used!"
+                                                      userInfo:nil];
+    @throw exception;
+}
+
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)contactId
