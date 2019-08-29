@@ -82,6 +82,7 @@
 		6A664E831E777DC600772E23 /* WKRCrash_Category_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Category_Worker.m; path = Classes/WKRCrash_Category_Worker.m; sourceTree = "<group>"; };
 		6AB2ED821DD7CCB3004439E6 /* WKRCrash_User_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_User_Worker.h; path = Classes/WKRCrash_User_Worker.h; sourceTree = "<group>"; };
 		6AB2ED831DD7CCB3004439E6 /* WKRCrash_User_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_User_Worker.m; path = Classes/WKRCrash_User_Worker.m; sourceTree = "<group>"; };
+		6AC77C6723186793004EF336 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6ADA78041E5378F400F65B2F /* WKRCrash_Cache_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_Cache_Worker.h; path = Classes/WKRCrash_Cache_Worker.h; sourceTree = "<group>"; };
 		6ADA78051E5378F400F65B2F /* WKRCrash_Cache_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRCrash_Cache_Worker.m; path = Classes/WKRCrash_Cache_Worker.m; sourceTree = "<group>"; };
 		6AE0CF881DF7360E009727C1 /* WKRCrash_UserDevice_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRCrash_UserDevice_Worker.h; path = Classes/WKRCrash_UserDevice_Worker.h; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 		6AE1BDAA1DCB79C80074C920 /* Cocoapod */ = {
 			isa = PBXGroup;
 			children = (
+				6AC77C6723186793004EF336 /* LICENSE */,
 				6AE1BDAC1DCB79DE0074C920 /* README.md */,
 				6AE1BDAD1DCB79DE0074C920 /* WKRCrash_Workers.podspec */,
 				6AE1BDAB1DCB79CE0074C920 /* Classes */,
